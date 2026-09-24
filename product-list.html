@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cerutu Premium — EMBER & CO.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#1C1813;--ink-soft:#6E6357;--paper:#FAF7F1;--paper-dim:#F1ECE1;--line:#E3DACA;--brass:#A9812E;--brass-dark:#7C5E20;--burgundy:#5B1A24;--green:#3C5C43;--radius:2px;--maxw:1240px;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;}
+a{color:inherit;text-decoration:none;} button{font-family:inherit;cursor:pointer;border:none;background:none;} ul{list-style:none;}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;letter-spacing:-0.01em;}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:var(--radius);font-weight:600;font-size:13.5px;}
+.btn-brass{background:var(--brass);color:#fff;} .btn-brass:hover{background:var(--brass-dark);}
+.btn-outline{border:1.5px solid var(--line);color:var(--ink);} .btn-outline:hover{border-color:var(--ink);}
+.pill{display:inline-block;padding:4px 11px;border-radius:20px;font-size:11px;font-weight:700;}
+.pill-new{background:var(--green);color:#fff;} .pill-hot{background:var(--burgundy);color:#fff;} .pill-off{background:var(--brass);color:#fff;}
+.topbar{background:var(--ink);color:#CFC6B8;font-size:12.5px;} .topbar .wrap{display:flex;justify-content:space-between;height:36px;align-items:center;}
+header.site{background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+header.site .wrap{display:flex;align-items:center;justify-content:space-between;height:82px;gap:26px;}
+.logo{font-family:'Fraunces',serif;font-size:23px;font-weight:600;display:flex;align-items:center;gap:8px;}
+.logo .dot{width:9px;height:9px;border-radius:50%;background:var(--brass);}
+nav.main{display:flex;gap:28px;} nav.main a{font-size:14px;font-weight:600;}
+nav.main a.active{color:var(--brass-dark);}
+.search-box{flex:1;max-width:300px;display:flex;align-items:center;border:1.5px solid var(--line);border-radius:30px;padding:9px 16px;gap:8px;background:var(--paper-dim);}
+.search-box input{border:none;background:none;outline:none;font-size:13px;width:100%;}
+.head-icons{display:flex;gap:18px;align-items:center;}
+.icon-btn{position:relative;width:22px;height:22px;}
+.badge{position:absolute;top:-9px;right:-11px;background:var(--burgundy);color:#fff;font-size:10px;font-weight:700;width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+.crumb{padding:18px 0;font-size:12.5px;color:var(--ink-soft);}
+.crumb a:hover{color:var(--brass-dark);}
+.page-head{display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;padding-bottom:26px;}
+.page-head h1{font-size:32px;}
+.page-head p{color:var(--ink-soft);font-size:13.5px;margin-top:6px;}
+.sort-row{display:flex;align-items:center;gap:10px;}
+.sort-row select{padding:10px 14px;border:1.5px solid var(--line);border-radius:6px;font-size:13px;font-family:inherit;background:#fff;}
+.chip-row{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;}
+.chip{display:flex;align-items:center;gap:6px;background:var(--paper-dim);border:1px solid var(--line);padding:6px 12px;border-radius:20px;font-size:12px;font-weight:600;}
+.shop-layout{display:grid;grid-template-columns:260px 1fr;gap:32px;padding-bottom:70px;}
+.filter-box{border:1px solid var(--line);background:#fff;border-radius:6px;padding:22px;position:sticky;top:100px;align-self:start;}
+.filter-box h4{font-size:14px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--line);}
+.filter-group{margin-bottom:22px;}
+.filter-group h5{font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--ink-soft);margin-bottom:10px;}
+.check-row{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px;font-size:13.5px;}
+.check-row .l{display:flex;align-items:center;gap:8px;} .check-row input{accent-color:var(--brass-dark);}
+.check-row span.n{color:var(--ink-soft);font-size:12px;}
+.price-inputs{display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+.price-inputs input{width:100%;padding:8px 10px;border:1.5px solid var(--line);border-radius:5px;font-size:12.5px;}
+.swatch-row{display:flex;gap:8px;flex-wrap:wrap;}
+.swatch{padding:6px 12px;border:1.5px solid var(--line);border-radius:20px;font-size:12px;font-weight:600;}
+.swatch.sel{background:var(--ink);color:#fff;border-color:var(--ink);}
+.result-count{font-size:13px;color:var(--ink-soft);margin-bottom:18px;}
+.prod-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+.prod-card{border:1px solid var(--line);background:#fff;border-radius:var(--radius);overflow:hidden;transition:.2s;cursor:pointer;}
+.prod-card:hover{box-shadow:0 16px 32px rgba(28,24,19,.1);transform:translateY(-4px);}
+.prod-thumb{height:175px;position:relative;background:linear-gradient(135deg,var(--paper-dim),#E9E1D0);display:flex;align-items:center;justify-content:center;}
+.prod-thumb .cig{width:120px;height:14px;border-radius:8px;background:repeating-linear-gradient(90deg,#8B5A2B 0 4px,#6E4620 4px 5px);}
+.prod-thumb .fav{position:absolute;top:12px;right:12px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,.12);}
+.prod-thumb .tag{position:absolute;top:12px;left:12px;}
+.prod-info{padding:18px;}
+.prod-info .origin{font-size:11.5px;color:var(--ink-soft);text-transform:uppercase;margin-bottom:5px;}
+.prod-info h4{font-size:15px;font-weight:700;margin-bottom:6px;}
+.stars{color:var(--brass);font-size:12.5px;margin-bottom:12px;} .stars span{color:var(--ink-soft);}
+.prod-bottom{display:flex;justify-content:space-between;align-items:center;}
+.prod-bottom .price{font-family:'Fraunces',serif;font-size:17.5px;}
+.old{color:var(--ink-soft);font-size:12px;text-decoration:line-through;display:block;}
+.add-btn{width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;}
+.add-btn:hover{background:var(--burgundy);}
+.pagination{display:flex;justify-content:center;gap:8px;margin-top:44px;}
+.pagination button{width:38px;height:38px;border:1.5px solid var(--line);border-radius:6px;font-size:13px;font-weight:600;}
+.pagination button.active{background:var(--ink);color:#fff;border-color:var(--ink);}
+footer{background:#14110D;color:#B9AE9C;padding:50px 0 26px;font-size:13px;}
+.foot-bottom{border-top:1px solid rgba(255,255,255,.09);padding-top:20px;margin-top:30px;display:flex;justify-content:space-between;font-size:12px;flex-wrap:wrap;gap:10px;}
+@media(max-width:1000px){.shop-layout{grid-template-columns:1fr;} .filter-box{position:static;} .prod-grid{grid-template-columns:repeat(2,1fr);} nav.main,.search-box{display:none;}}
+</style>
+</head>
+<body>
+<div class="topbar"><div class="wrap"><span>🚚 Gratis ongkir di atas Rp750.000</span><span>🔞 Khusus usia 18+</span></div></div>
+<header class="site">
+  <div class="wrap">
+    <a href="redesign-cerutu-ecommerce.html" class="logo"><span class="dot"></span>EMBER & CO.</a>
+    <nav class="main">
+      <a href="product-list.html" class="active">Cerutu Premium</a>
+      <a href="product-list.html">Cerutu Casual</a>
+      <a href="product-list.html">Aksesoris</a>
+      <a href="redesign-cerutu-ecommerce.html#member">Membership</a>
+    </nav>
+    <div class="search-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input placeholder="Cari cerutu, brand…"></div>
+    <div class="head-icons">
+      <button class="icon-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7.5-4.7-10-9.3C.4 8 2 4 6 4c2.2 0 3.8 1.2 6 3.6C14.2 5.2 15.8 4 18 4c4 0 5.6 4 4 7.7C19.5 16.3 12 21 12 21z"/></svg></button>
+      <button class="icon-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6"/></svg></button>
+      <a href="checkout.html" class="icon-btn"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 4h2l2.4 12.4a2 2 0 002 1.6h8.2a2 2 0 002-1.6L21 8H6"/><circle cx="9" cy="21" r="1.2"/><circle cx="18" cy="21" r="1.2"/></svg><span class="badge">3</span></a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="redesign-cerutu-ecommerce.html">Beranda</a> / <span>Cerutu Premium</span></div>
+  <div class="page-head">
+    <div><h1>Cerutu Premium</h1><p>142 produk ditemukan dari koleksi lokal & impor pilihan</p></div>
+    <div class="sort-row"><span style="font-size:13px;color:var(--ink-soft);">Urutkan:</span>
+      <select><option>Paling Relevan</option><option>Harga: Terendah</option><option>Harga: Tertinggi</option><option>Terbaru</option><option>Rating Tertinggi</option></select>
+    </div>
+  </div>
+
+  <div class="chip-row">
+    <div class="chip">Indonesia ✕</div><div class="chip">Rp100rb–Rp500rb ✕</div><div class="chip">Rating 4★+ ✕</div>
+    <button class="btn btn-outline" style="padding:6px 12px;font-size:12px;">Hapus Semua</button>
+  </div>
+
+  <div class="shop-layout">
+    <aside class="filter-box">
+      <h4>Filter Produk</h4>
+      <div class="filter-group"><h5>Kategori</h5>
+        <label class="check-row"><span class="l"><input type="checkbox" checked>Cerutu Premium</span><span class="n">142</span></label>
+        <label class="check-row"><span class="l"><input type="checkbox">Cerutu Casual</span><span class="n">96</span></label>
+        <label class="check-row"><span class="l"><input type="checkbox">Cigarillos</span><span class="n">38</span></label>
+      </div>
+      <div class="filter-group"><h5>Rentang Harga</h5>
+        <div class="price-inputs"><input placeholder="Min"><span>—</span><input placeholder="Maks"></div>
+        <button class="btn btn-outline" style="width:100%;padding:8px;font-size:12.5px;">Terapkan</button>
+      </div>
+      <div class="filter-group"><h5>Asal Cerutu</h5>
+        <label class="check-row"><span class="l"><input type="checkbox" checked>Indonesia</span><span class="n">88</span></label>
+        <label class="check-row"><span class="l"><input type="checkbox">Nikaragua</span><span class="n">24</span></label>
+        <label class="check-row"><span class="l"><input type="checkbox">Dominika</span><span class="n">18</span></label>
+        <label class="check-row"><span class="l"><input type="checkbox">Kuba</span><span class="n">12</span></label>
+      </div>
+      <div class="filter-group"><h5>Tingkat Kekuatan</h5>
+        <div class="swatch-row"><span class="swatch sel">Ringan</span><span class="swatch">Sedang</span><span class="swatch">Kuat</span></div>
+      </div>
+      <div class="filter-group"><h5>Ukuran / Format</h5>
+        <label class="check-row"><span class="l"><input type="checkbox">Per Batang</span><span class="n">64</span></label>
+        <label class="check-row"><span class="l"><input type="checkbox">Box isi 5</span><span class="n">40</span></label>
+        <label class="check-row"><span class="l"><input type="checkbox">Box isi 10+</span><span class="n">38</span></label>
+      </div>
+      <div class="filter-group"><h5>Rating Minimum</h5>
+        <label class="check-row"><span class="l"><input type="checkbox" checked>★★★★☆ ke atas</span></label>
+        <label class="check-row"><span class="l"><input type="checkbox">★★★☆☆ ke atas</span></label>
+      </div>
+      <button class="btn btn-outline" style="width:100%;">Reset Filter</button>
+    </aside>
+
+    <div>
+      <div class="result-count">Menampilkan 1–12 dari 142 produk</div>
+      <div class="prod-grid">
+        <a class="prod-card" href="product-detail.html"><div class="prod-thumb"><span class="tag pill pill-hot">Terlaris</span><div class="cig"></div><div class="fav">♥</div></div><div class="prod-info"><div class="origin">Indonesia · Premium</div><h4>Airlangga Grand Corona</h4><div class="stars">★★★★☆ <span>(214)</span></div><div class="prod-bottom"><span class="price">Rp185.000</span><button class="add-btn">+</button></div></div></a>
+        <a class="prod-card" href="product-detail.html"><div class="prod-thumb"><span class="tag pill pill-new">Baru</span><div class="cig"></div><div class="fav">♥</div></div><div class="prod-info"><div class="origin">Nikaragua · Impor</div><h4>Esperitu Special Box</h4><div class="stars">★★★★★ <span>(58)</span></div><div class="prod-bottom"><span class="price">Rp1.100.000</span><button class="add-btn">+</button></div></div></a>
+        <a class="prod-card" href="product-detail.html"><div class="prod-thumb"><span class="tag pill pill-off">-15%</span><div class="cig"></div><div class="fav">♥</div></div><div class="prod-info"><div class="origin">Indonesia · Casual</div><h4>Adipati Panatella Box-10</h4><div class="stars">★★★★☆ <span>(96)</span></div><div class="prod-bottom"><span class="price"><span class="old">Rp125.000</span>Rp105.000</span><button class="add-btn">+</button></div></div></a>
+        <a class="prod-card" href="product-detail.html"><div class="prod-thumb"><div class="cig"></div><div class="fav">♥</div></div><div class="prod-info"><div class="origin">Indonesia · Premium</div><h4>Bedjo Robusto Box-10</h4><div class="stars">★★★★☆ <span>(74)</span></div><div class="prod-bottom"><span class="price">Rp625.000</span><button class="add-btn">+</button></div></div></a>
+        <a class="prod-card" href="product-detail.html"><div class="prod-thumb"><span class="tag pill pill-hot">Terlaris</span><div class="cig"></div><div class="fav">♥</div></div><div class="prod-info"><div class="origin">Indonesia · Premium</div><h4>Sultan Vintage Robusto</h4><div class="stars">★★★★★ <span>(163)</span></div><div class="prod-bottom"><span class="price">Rp175.000</span><button class="add-btn">+</button></div></div></a>
+        <a class="prod-card" href="product-detail.html"><div class="prod-thumb"><div class="cig"></div><div class="fav">♥</div></div><div class="prod-info"><div class="origin">Indonesia · Premium</div><h4>Maumere Clove Corona</h4><div class="stars">★★★★☆ <span>(52)</span></div><div class="prod-bottom"><span class="price">Rp550.000</span><button class="add-btn">+</button></div></div></a>
+        <a class="prod-card" href="product-detail.html"><div class="prod-thumb"><span class="tag pill pill-new">Baru</span><div class="cig"></div><div class="fav">♥</div></div><div class="prod-info"><div class="origin">Turki · Impor</div><h4>Ataturk Gallipoli Box-10</h4><div class="stars">★★★★★ <span>(19)</span></div><div class="prod-bottom"><span class="price">Rp1.900.000</span><button class="add-btn">+</button></div></div></a>
+        <a class="prod-card" href="product-detail.html"><div class="prod-thumb"><div class="cig"></div><div class="fav">♥</div></div><div class="prod-info"><div class="origin">Indonesia · Casual</div><h4>Ramayana Corona Box-10</h4><div class="stars">★★★★☆ <span>(41)</span></div><div class="prod-bottom"><span class="price">Rp150.000</span><button class="add-btn">+</button></div></div></a>
+        <a class="prod-card" href="product-detail.html"><div class="prod-thumb"><span class="tag pill pill-off">-10%</span><div class="cig"></div><div class="fav">♥</div></div><div class="prod-info"><div class="origin">Indonesia · Premium</div><h4>Wismilak Seleccion Robusto</h4><div class="stars">★★★★☆ <span>(88)</span></div><div class="prod-bottom"><span class="price">Rp150.000</span><button class="add-btn">+</button></div></div></a>
+        <a class="prod-card" href="product-detail.html"><div class="prod-thumb"><div class="cig"></div><div class="fav">♥</div></div><div class="prod-info"><div class="origin">Aksesoris</div><h4>Humidor Kayu Cedar 50ct</h4><div class="stars">★★★★★ <span>(37)</span></div><div class="prod-bottom"><span class="price">Rp950.000</span><button class="add-btn">+</button></div></div></a>
+        <a class="prod-card" href="product-detail.html"><div class="prod-thumb"><div class="cig"></div><div class="fav">♥</div></div><div class="prod-info"><div class="origin">Indonesia · Premium</div><h4>Airlangga Half Corona</h4><div class="stars">★★★★☆ <span>(29)</span></div><div class="prod-bottom"><span class="price">Rp69.000</span><button class="add-btn">+</button></div></div></a>
+        <a class="prod-card" href="product-detail.html"><div class="prod-thumb"><span class="tag pill pill-new">Baru</span><div class="cig"></div><div class="fav">♥</div></div><div class="prod-info"><div class="origin">Nikaragua · Impor</div><h4>Esperitu Iconica Box-3</h4><div class="stars">★★★★★ <span>(14)</span></div><div class="prod-bottom"><span class="price">Rp625.000</span><button class="add-btn">+</button></div></div></a>
+      </div>
+      <div class="pagination"><button>‹</button><button class="active">1</button><button>2</button><button>3</button><button>…</button><button>12</button><button>›</button></div>
+    </div>
+  </div>
+</div>
+
+<footer><div class="wrap">
+  <div>© 2026 Ember & Co. — Toko cerutu & tembakau terpercaya.</div>
+  <div class="foot-bottom"><span>Belanja · Bantuan · Tentang Kami · Legal</span><span>BCA · Mandiri · QRIS · Visa · Mastercard</span></div>
+</div></footer>
+</body>
+</html>
