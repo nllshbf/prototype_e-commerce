@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>EMBER & CO. — Redesign E-commerce Cerutu</title>
+<title>EMBER & CO. — Prototype E-commerce Cerutu (Navigasi Lengkap)</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
+
 :root{
   --ink:#1C1813;--ink-soft:#6E6357;--paper:#FAF7F1;--paper-dim:#F1ECE1;--line:#E3DACA;
   --brass:#A9812E;--brass-dark:#7C5E20;--brass-soft:#F3E7CC;
@@ -318,6 +319,303 @@ tr.clickable:hover td{background:var(--paper-dim);cursor:pointer;}
   .search-box{display:none;}
   .form-row{grid-template-columns:1fr;}
 }
+
+/* ============ SCOPED: PRODUCT LIST SCREEN ============ */
+#screen-list {--ink:#1C1813;--ink-soft:#6E6357;--paper:#FAF7F1;--paper-dim:#F1ECE1;--line:#E3DACA;--brass:#A9812E;--brass-dark:#7C5E20;--burgundy:#5B1A24;--green:#3C5C43;--radius:2px;--maxw:1240px;}
+#screen-list * {box-sizing:border-box;margin:0;padding:0;}
+#screen-list {font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;}
+#screen-list a {color:inherit;text-decoration:none;}
+#screen-list button {font-family:inherit;cursor:pointer;border:none;background:none;}
+#screen-list ul {list-style:none;}
+#screen-list .wrap {max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+#screen-list h1, #screen-list h2, #screen-list h3 {font-family:'Fraunces',serif;font-weight:500;letter-spacing:-0.01em;}
+#screen-list .btn {display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 22px;border-radius:var(--radius);font-weight:600;font-size:13.5px;}
+#screen-list .btn-brass {background:var(--brass);color:#fff;}
+#screen-list .btn-brass:hover {background:var(--brass-dark);}
+#screen-list .btn-outline {border:1.5px solid var(--line);color:var(--ink);}
+#screen-list .btn-outline:hover {border-color:var(--ink);}
+#screen-list .pill {display:inline-block;padding:4px 11px;border-radius:20px;font-size:11px;font-weight:700;}
+#screen-list .pill-new {background:var(--green);color:#fff;}
+#screen-list .pill-hot {background:var(--burgundy);color:#fff;}
+#screen-list .pill-off {background:var(--brass);color:#fff;}
+#screen-list .topbar {background:var(--ink);color:#CFC6B8;font-size:12.5px;}
+#screen-list .topbar .wrap {display:flex;justify-content:space-between;height:36px;align-items:center;}
+#screen-list header.site {background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+#screen-list header.site .wrap {display:flex;align-items:center;justify-content:space-between;height:82px;gap:26px;}
+#screen-list .logo {font-family:'Fraunces',serif;font-size:23px;font-weight:600;display:flex;align-items:center;gap:8px;}
+#screen-list .logo .dot {width:9px;height:9px;border-radius:50%;background:var(--brass);}
+#screen-list nav.main {display:flex;gap:28px;}
+#screen-list nav.main a {font-size:14px;font-weight:600;}
+#screen-list nav.main a.active {color:var(--brass-dark);}
+#screen-list .search-box {flex:1;max-width:300px;display:flex;align-items:center;border:1.5px solid var(--line);border-radius:30px;padding:9px 16px;gap:8px;background:var(--paper-dim);}
+#screen-list .search-box input {border:none;background:none;outline:none;font-size:13px;width:100%;}
+#screen-list .head-icons {display:flex;gap:18px;align-items:center;}
+#screen-list .icon-btn {position:relative;width:22px;height:22px;}
+#screen-list .badge {position:absolute;top:-9px;right:-11px;background:var(--burgundy);color:#fff;font-size:10px;font-weight:700;width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+#screen-list .crumb {padding:18px 0;font-size:12.5px;color:var(--ink-soft);}
+#screen-list .crumb a:hover {color:var(--brass-dark);}
+#screen-list .page-head {display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:16px;padding-bottom:26px;}
+#screen-list .page-head h1 {font-size:32px;}
+#screen-list .page-head p {color:var(--ink-soft);font-size:13.5px;margin-top:6px;}
+#screen-list .sort-row {display:flex;align-items:center;gap:10px;}
+#screen-list .sort-row select {padding:10px 14px;border:1.5px solid var(--line);border-radius:6px;font-size:13px;font-family:inherit;background:#fff;}
+#screen-list .chip-row {display:flex;gap:8px;flex-wrap:wrap;margin-bottom:22px;}
+#screen-list .chip {display:flex;align-items:center;gap:6px;background:var(--paper-dim);border:1px solid var(--line);padding:6px 12px;border-radius:20px;font-size:12px;font-weight:600;}
+#screen-list .shop-layout {display:grid;grid-template-columns:260px 1fr;gap:32px;padding-bottom:70px;}
+#screen-list .filter-box {border:1px solid var(--line);background:#fff;border-radius:6px;padding:22px;position:sticky;top:100px;align-self:start;}
+#screen-list .filter-box h4 {font-size:14px;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--line);}
+#screen-list .filter-group {margin-bottom:22px;}
+#screen-list .filter-group h5 {font-size:12px;text-transform:uppercase;letter-spacing:.4px;color:var(--ink-soft);margin-bottom:10px;}
+#screen-list .check-row {display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:10px;font-size:13.5px;}
+#screen-list .check-row .l {display:flex;align-items:center;gap:8px;}
+#screen-list .check-row input {accent-color:var(--brass-dark);}
+#screen-list .check-row span.n {color:var(--ink-soft);font-size:12px;}
+#screen-list .price-inputs {display:flex;align-items:center;gap:8px;margin-bottom:10px;}
+#screen-list .price-inputs input {width:100%;padding:8px 10px;border:1.5px solid var(--line);border-radius:5px;font-size:12.5px;}
+#screen-list .swatch-row {display:flex;gap:8px;flex-wrap:wrap;}
+#screen-list .swatch {padding:6px 12px;border:1.5px solid var(--line);border-radius:20px;font-size:12px;font-weight:600;}
+#screen-list .swatch.sel {background:var(--ink);color:#fff;border-color:var(--ink);}
+#screen-list .result-count {font-size:13px;color:var(--ink-soft);margin-bottom:18px;}
+#screen-list .prod-grid {display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+#screen-list .prod-card {border:1px solid var(--line);background:#fff;border-radius:var(--radius);overflow:hidden;transition:.2s;cursor:pointer;}
+#screen-list .prod-card:hover {box-shadow:0 16px 32px rgba(28,24,19,.1);transform:translateY(-4px);}
+#screen-list .prod-thumb {height:175px;position:relative;background:linear-gradient(135deg,var(--paper-dim),#E9E1D0);display:flex;align-items:center;justify-content:center;}
+#screen-list .prod-thumb .cig {width:120px;height:14px;border-radius:8px;background:repeating-linear-gradient(90deg,#8B5A2B 0 4px,#6E4620 4px 5px);}
+#screen-list .prod-thumb .fav {position:absolute;top:12px;right:12px;width:30px;height:30px;background:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 6px rgba(0,0,0,.12);}
+#screen-list .prod-thumb .tag {position:absolute;top:12px;left:12px;}
+#screen-list .prod-info {padding:18px;}
+#screen-list .prod-info .origin {font-size:11.5px;color:var(--ink-soft);text-transform:uppercase;margin-bottom:5px;}
+#screen-list .prod-info h4 {font-size:15px;font-weight:700;margin-bottom:6px;}
+#screen-list .stars {color:var(--brass);font-size:12.5px;margin-bottom:12px;}
+#screen-list .stars span {color:var(--ink-soft);}
+#screen-list .prod-bottom {display:flex;justify-content:space-between;align-items:center;}
+#screen-list .prod-bottom .price {font-family:'Fraunces',serif;font-size:17.5px;}
+#screen-list .old {color:var(--ink-soft);font-size:12px;text-decoration:line-through;display:block;}
+#screen-list .add-btn {width:36px;height:36px;border-radius:50%;background:var(--ink);color:#fff;display:flex;align-items:center;justify-content:center;}
+#screen-list .add-btn:hover {background:var(--burgundy);}
+#screen-list .pagination {display:flex;justify-content:center;gap:8px;margin-top:44px;}
+#screen-list .pagination button {width:38px;height:38px;border:1.5px solid var(--line);border-radius:6px;font-size:13px;font-weight:600;}
+#screen-list .pagination button.active {background:var(--ink);color:#fff;border-color:var(--ink);}
+#screen-list footer {background:#14110D;color:#B9AE9C;padding:50px 0 26px;font-size:13px;}
+#screen-list .foot-bottom {border-top:1px solid rgba(255,255,255,.09);padding-top:20px;margin-top:30px;display:flex;justify-content:space-between;font-size:12px;flex-wrap:wrap;gap:10px;}
+@media(max-width:1000px) {
+#screen-list .shop-layout {grid-template-columns:1fr;}
+#screen-list .filter-box {position:static;}
+#screen-list .prod-grid {grid-template-columns:repeat(2,1fr);}
+#screen-list nav.main, #screen-list .search-box {display:none;}
+
+}
+
+
+/* ============ SCOPED: PRODUCT DETAIL SCREEN ============ */
+#screen-detail {--ink:#1C1813;--ink-soft:#6E6357;--paper:#FAF7F1;--paper-dim:#F1ECE1;--line:#E3DACA;--brass:#A9812E;--brass-dark:#7C5E20;--burgundy:#5B1A24;--green:#3C5C43;--radius:2px;--maxw:1240px;}
+#screen-detail * {box-sizing:border-box;margin:0;padding:0;}
+#screen-detail {font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;}
+#screen-detail a {color:inherit;text-decoration:none;}
+#screen-detail button {font-family:inherit;cursor:pointer;border:none;background:none;}
+#screen-detail ul {list-style:none;}
+#screen-detail .wrap {max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+#screen-detail h1, #screen-detail h2, #screen-detail h3 {font-family:'Fraunces',serif;font-weight:500;letter-spacing:-0.01em;}
+#screen-detail .btn {display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:var(--radius);font-weight:700;font-size:14px;}
+#screen-detail .btn-brass {background:var(--brass);color:#fff;}
+#screen-detail .btn-brass:hover {background:var(--brass-dark);}
+#screen-detail .btn-ink {background:var(--ink);color:#fff;}
+#screen-detail .btn-ink:hover {background:var(--burgundy);}
+#screen-detail .btn-outline {border:1.5px solid var(--line);color:var(--ink);}
+#screen-detail .btn-outline:hover {border-color:var(--ink);}
+#screen-detail .btn-block {width:100%;}
+#screen-detail .pill {display:inline-block;padding:4px 11px;border-radius:20px;font-size:11px;font-weight:700;}
+#screen-detail .pill-hot {background:var(--burgundy);color:#fff;}
+#screen-detail .pill-stock {background:#E7EFE8;color:var(--green);}
+#screen-detail .topbar {background:var(--ink);color:#CFC6B8;font-size:12.5px;}
+#screen-detail .topbar .wrap {display:flex;justify-content:space-between;height:36px;align-items:center;}
+#screen-detail header.site {background:var(--paper);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:50;}
+#screen-detail header.site .wrap {display:flex;align-items:center;justify-content:space-between;height:82px;gap:26px;}
+#screen-detail .logo {font-family:'Fraunces',serif;font-size:23px;font-weight:600;display:flex;align-items:center;gap:8px;}
+#screen-detail .logo .dot {width:9px;height:9px;border-radius:50%;background:var(--brass);}
+#screen-detail nav.main {display:flex;gap:28px;}
+#screen-detail nav.main a {font-size:14px;font-weight:600;}
+#screen-detail .search-box {flex:1;max-width:300px;display:flex;align-items:center;border:1.5px solid var(--line);border-radius:30px;padding:9px 16px;gap:8px;background:var(--paper-dim);}
+#screen-detail .search-box input {border:none;background:none;outline:none;font-size:13px;width:100%;}
+#screen-detail .head-icons {display:flex;gap:18px;align-items:center;}
+#screen-detail .icon-btn {position:relative;width:22px;height:22px;}
+#screen-detail .badge {position:absolute;top:-9px;right:-11px;background:var(--burgundy);color:#fff;font-size:10px;font-weight:700;width:17px;height:17px;border-radius:50%;display:flex;align-items:center;justify-content:center;}
+#screen-detail .crumb {padding:18px 0;font-size:12.5px;color:var(--ink-soft);}
+#screen-detail .crumb a:hover {color:var(--brass-dark);}
+#screen-detail .detail-grid {display:grid;grid-template-columns:.9fr 1.1fr;gap:52px;padding-bottom:60px;}
+#screen-detail .gallery-main {height:420px;border-radius:8px;background:linear-gradient(135deg,var(--paper-dim),#E9E1D0);display:flex;align-items:center;justify-content:center;position:relative;margin-bottom:14px;}
+#screen-detail .gallery-main .cig {width:280px;height:26px;border-radius:14px;background:repeating-linear-gradient(90deg,#8B5A2B 0 7px,#6E4620 7px 9px);}
+#screen-detail .gallery-main .band {position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:70px;height:44px;background:var(--brass);border-radius:2px;display:flex;align-items:center;justify-content:center;color:#fff;font-family:'Fraunces',serif;font-size:10px;letter-spacing:1px;text-align:center;}
+#screen-detail .thumb-row {display:flex;gap:10px;}
+#screen-detail .thumb-row .t {width:74px;height:74px;border-radius:6px;border:2px solid var(--line);background:linear-gradient(135deg,var(--paper-dim),#E9E1D0);cursor:pointer;}
+#screen-detail .thumb-row .t.active {border-color:var(--brass);}
+#screen-detail .p-origin {font-size:12px;text-transform:uppercase;letter-spacing:.5px;color:var(--brass-dark);font-weight:700;margin-bottom:8px;}
+#screen-detail .p-title {font-size:30px;margin-bottom:10px;}
+#screen-detail .p-meta {display:flex;align-items:center;gap:16px;font-size:13px;color:var(--ink-soft);margin-bottom:20px;}
+#screen-detail .stars {color:var(--brass);font-size:13.5px;}
+#screen-detail .stars span {color:var(--ink-soft);}
+#screen-detail .p-price-row {display:flex;align-items:baseline;gap:12px;margin-bottom:22px;padding-bottom:22px;border-bottom:1px solid var(--line);}
+#screen-detail .p-price {font-family:'Fraunces',serif;font-size:32px;}
+#screen-detail .p-old {font-size:15px;color:var(--ink-soft);text-decoration:line-through;}
+#screen-detail .p-save {background:var(--brass-soft,#F3E7CC);color:var(--brass-dark);font-size:12px;font-weight:700;padding:3px 9px;border-radius:12px;}
+#screen-detail .variant-group {margin-bottom:22px;}
+#screen-detail .variant-group h5 {font-size:12.5px;font-weight:700;margin-bottom:10px;}
+#screen-detail .variant-row {display:flex;gap:10px;flex-wrap:wrap;}
+#screen-detail .variant-btn {padding:10px 18px;border:1.5px solid var(--line);border-radius:6px;font-size:13.5px;font-weight:600;}
+#screen-detail .variant-btn.sel {background:var(--ink);color:#fff;border-color:var(--ink);}
+#screen-detail .qty-stepper {display:inline-flex;align-items:center;border:1.5px solid var(--line);border-radius:30px;}
+#screen-detail .qty-stepper button {width:38px;height:38px;font-size:17px;font-weight:700;}
+#screen-detail .qty-stepper span {min-width:30px;text-align:center;font-weight:700;font-size:14px;}
+#screen-detail .buy-row {display:flex;gap:14px;align-items:center;margin-bottom:24px;}
+#screen-detail .buy-row .btn {flex:1;padding:15px;}
+#screen-detail .icon-circle {width:46px;height:46px;border-radius:50%;border:1.5px solid var(--line);display:flex;align-items:center;justify-content:center;flex:none;}
+#screen-detail .icon-circle:hover {border-color:var(--ink);}
+#screen-detail .trust-mini {display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:26px;}
+#screen-detail .trust-mini div {display:flex;gap:9px;align-items:flex-start;font-size:12px;color:var(--ink-soft);}
+#screen-detail .trust-mini svg {width:18px;height:18px;color:var(--brass-dark);flex:none;margin-top:1px;}
+#screen-detail .ship-check {border:1px solid var(--line);border-radius:6px;padding:16px;display:flex;gap:10px;}
+#screen-detail .ship-check input {flex:1;padding:10px 12px;border:1.5px solid var(--line);border-radius:5px;font-size:13px;}
+#screen-detail /* Tabs */
+.tabs-nav {display:flex;gap:8px;border-bottom:1px solid var(--line);margin-bottom:28px;}
+#screen-detail .tabs-nav button {padding:14px 20px;font-size:14px;font-weight:700;color:var(--ink-soft);border-bottom:2px solid transparent;}
+#screen-detail .tabs-nav button.active {color:var(--ink);border-color:var(--brass);}
+#screen-detail .tab-panel {display:none;}
+#screen-detail .tab-panel.active {display:block;}
+#screen-detail .spec-table {width:100%;border-collapse:collapse;max-width:620px;}
+#screen-detail .spec-table tr {border-bottom:1px solid var(--line);}
+#screen-detail .spec-table td {padding:12px 4px;font-size:13.5px;}
+#screen-detail .spec-table td:first-child {color:var(--ink-soft);width:220px;}
+#screen-detail .rev-summary {display:grid;grid-template-columns:220px 1fr;gap:40px;margin-bottom:30px;padding-bottom:30px;border-bottom:1px solid var(--line);}
+#screen-detail .rev-big {text-align:center;}
+#screen-detail .rev-big .n {font-family:'Fraunces',serif;font-size:52px;}
+#screen-detail .bar-row {display:flex;align-items:center;gap:10px;margin-bottom:7px;font-size:12px;}
+#screen-detail .bar-track {flex:1;height:7px;background:var(--paper-dim);border-radius:10px;overflow:hidden;}
+#screen-detail .bar-fill {height:100%;background:var(--brass);}
+#screen-detail .review-item {padding:20px 0;border-bottom:1px solid var(--line);}
+#screen-detail .review-top {display:flex;justify-content:space-between;margin-bottom:6px;}
+#screen-detail .review-top strong {font-size:13.5px;}
+#screen-detail .review-top span {font-size:11.5px;color:var(--ink-soft);}
+#screen-detail .review-item p {font-size:13.5px;color:var(--ink);margin-top:6px;}
+#screen-detail .rel-head {display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:26px;}
+#screen-detail .prod-grid {display:grid;grid-template-columns:repeat(4,1fr);gap:20px;}
+#screen-detail .prod-card {border:1px solid var(--line);background:#fff;border-radius:var(--radius);overflow:hidden;}
+#screen-detail .prod-card:hover {box-shadow:0 16px 32px rgba(28,24,19,.1);}
+#screen-detail .prod-thumb {height:140px;background:linear-gradient(135deg,var(--paper-dim),#E9E1D0);display:flex;align-items:center;justify-content:center;}
+#screen-detail .prod-thumb .cig {width:100px;height:12px;border-radius:8px;background:repeating-linear-gradient(90deg,#8B5A2B 0 4px,#6E4620 4px 5px);}
+#screen-detail .prod-info {padding:14px;}
+#screen-detail .prod-info h4 {font-size:13.5px;font-weight:700;margin-bottom:6px;}
+#screen-detail .prod-info .price {font-family:'Fraunces',serif;font-size:15.5px;}
+#screen-detail footer {background:#14110D;color:#B9AE9C;padding:50px 0 26px;font-size:13px;}
+#screen-detail .foot-bottom {border-top:1px solid rgba(255,255,255,.09);padding-top:20px;margin-top:30px;display:flex;justify-content:space-between;font-size:12px;flex-wrap:wrap;gap:10px;}
+@media(max-width:980px) {
+#screen-detail .detail-grid {grid-template-columns:1fr;}
+#screen-detail .rev-summary {grid-template-columns:1fr;}
+#screen-detail .prod-grid {grid-template-columns:repeat(2,1fr);}
+#screen-detail nav.main, #screen-detail .search-box {display:none;}
+#screen-detail .trust-mini {grid-template-columns:1fr;}
+
+}
+
+
+/* ============ SCOPED: CHECKOUT SCREEN ============ */
+#screen-checkout {--ink:#1C1813;--ink-soft:#6E6357;--paper:#FAF7F1;--paper-dim:#F1ECE1;--line:#E3DACA;--brass:#A9812E;--brass-dark:#7C5E20;--burgundy:#5B1A24;--green:#3C5C43;--radius:2px;--maxw:1160px;}
+#screen-checkout * {box-sizing:border-box;margin:0;padding:0;}
+#screen-checkout {font-family:'Inter',sans-serif;background:var(--paper);color:var(--ink);line-height:1.55;}
+#screen-checkout a {color:inherit;text-decoration:none;}
+#screen-checkout button {font-family:inherit;cursor:pointer;border:none;background:none;}
+#screen-checkout ul {list-style:none;}
+#screen-checkout .wrap {max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+#screen-checkout h1, #screen-checkout h2, #screen-checkout h3 {font-family:'Fraunces',serif;font-weight:500;letter-spacing:-0.01em;}
+#screen-checkout .btn {display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;border-radius:var(--radius);font-weight:700;font-size:14px;}
+#screen-checkout .btn-brass {background:var(--brass);color:#fff;}
+#screen-checkout .btn-brass:hover {background:var(--brass-dark);}
+#screen-checkout .btn-outline {border:1.5px solid var(--line);color:var(--ink);}
+#screen-checkout .btn-outline:hover {border-color:var(--ink);}
+#screen-checkout .btn-block {width:100%;}
+#screen-checkout header.ck {background:var(--paper);border-bottom:1px solid var(--line);}
+#screen-checkout header.ck .wrap {display:flex;align-items:center;justify-content:space-between;height:76px;}
+#screen-checkout .logo {font-family:'Fraunces',serif;font-size:22px;font-weight:600;display:flex;align-items:center;gap:8px;}
+#screen-checkout .logo .dot {width:9px;height:9px;border-radius:50%;background:var(--brass);}
+#screen-checkout .secure {display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--ink-soft);font-weight:600;}
+#screen-checkout .secure svg {width:16px;height:16px;color:var(--green);}
+#screen-checkout .steps {display:flex;justify-content:center;gap:0;padding:26px 0;}
+#screen-checkout .step {display:flex;align-items:center;gap:10px;padding:0 26px;position:relative;}
+#screen-checkout .step:not(:last-child)::after {content:"";position:absolute;right:-2px;top:14px;width:40px;height:2px;background:var(--line);}
+#screen-checkout .step .n {width:28px;height:28px;border-radius:50%;background:var(--line);color:var(--ink-soft);display:flex;align-items:center;justify-content:center;font-size:12.5px;font-weight:700;}
+#screen-checkout .step.done .n {background:var(--green);color:#fff;}
+#screen-checkout .step.now .n {background:var(--brass);color:#fff;}
+#screen-checkout .step span {font-size:13px;font-weight:700;color:var(--ink-soft);}
+#screen-checkout .step.now span, #screen-checkout .step.done span {color:var(--ink);}
+#screen-checkout .ck-layout {display:grid;grid-template-columns:1.35fr 1fr;gap:36px;padding-bottom:80px;align-items:start;}
+#screen-checkout .card {background:#fff;border:1px solid var(--line);border-radius:8px;padding:26px;margin-bottom:22px;}
+#screen-checkout .card-head {display:flex;justify-content:space-between;align-items:center;margin-bottom:18px;}
+#screen-checkout .card-head h3 {font-size:17px;display:flex;align-items:center;gap:10px;}
+#screen-checkout .card-head .num {width:26px;height:26px;border-radius:50%;background:var(--ink);color:#fff;font-size:12.5px;display:flex;align-items:center;justify-content:center;font-family:'Inter';font-weight:700;}
+#screen-checkout .addr-card {border:1.5px solid var(--line);border-radius:6px;padding:16px;margin-bottom:10px;display:flex;gap:12px;cursor:pointer;}
+#screen-checkout .addr-card.sel {border-color:var(--brass);background:var(--paper-dim);}
+#screen-checkout .addr-card input {margin-top:3px;}
+#screen-checkout .addr-card h5 {font-size:13.5px;margin-bottom:4px;}
+#screen-checkout .addr-card p {font-size:12.5px;color:var(--ink-soft);}
+#screen-checkout .addr-tag {display:inline-block;background:var(--paper-dim);font-size:10.5px;font-weight:700;padding:2px 8px;border-radius:10px;margin-left:8px;color:var(--brass-dark);}
+#screen-checkout .form-group {margin-bottom:14px;}
+#screen-checkout .form-group label {display:block;font-size:12.5px;font-weight:600;margin-bottom:6px;color:var(--ink-soft);}
+#screen-checkout .form-group input, #screen-checkout .form-group select, #screen-checkout .form-group textarea {width:100%;padding:11px 14px;border:1.5px solid var(--line);border-radius:5px;font-size:13.5px;font-family:inherit;background:var(--paper);}
+#screen-checkout .form-row {display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+#screen-checkout .new-addr-form {display:none;margin-top:14px;padding-top:14px;border-top:1px dashed var(--line);}
+#screen-checkout .new-addr-form.show {display:block;}
+#screen-checkout .link-add {font-size:13px;font-weight:700;color:var(--brass-dark);}
+#screen-checkout .ship-opt {border:1.5px solid var(--line);border-radius:6px;padding:15px 16px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;}
+#screen-checkout .ship-opt.sel {border-color:var(--brass);background:var(--paper-dim);}
+#screen-checkout .ship-opt .l {display:flex;gap:12px;align-items:center;}
+#screen-checkout .ship-opt h5 {font-size:13.5px;}
+#screen-checkout .ship-opt p {font-size:11.5px;color:var(--ink-soft);}
+#screen-checkout .ship-opt .price {font-weight:700;font-size:13.5px;}
+#screen-checkout .pay-opt {border:1.5px solid var(--line);border-radius:6px;margin-bottom:10px;overflow:hidden;}
+#screen-checkout .pay-head {padding:15px 16px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;}
+#screen-checkout .pay-opt.sel {border-color:var(--brass);}
+#screen-checkout .pay-opt.sel .pay-head {background:var(--paper-dim);}
+#screen-checkout .pay-head .l {display:flex;align-items:center;gap:12px;font-size:13.5px;font-weight:700;}
+#screen-checkout .pay-body {max-height:0;overflow:hidden;transition:max-height .25s ease;padding:0 16px;}
+#screen-checkout .pay-opt.sel .pay-body {max-height:160px;padding:14px 16px;font-size:12.5px;color:var(--ink-soft);border-top:1px solid var(--line);}
+#screen-checkout .bank-logos {display:flex;gap:8px;margin-top:8px;}
+#screen-checkout .bank-logos span {background:var(--ink);color:#fff;font-size:10px;font-weight:700;padding:4px 8px;border-radius:4px;}
+#screen-checkout .summary-box {position:sticky;top:26px;}
+#screen-checkout .sum-item {display:flex;gap:12px;padding:12px 0;border-bottom:1px solid var(--paper-dim);}
+#screen-checkout .sum-thumb {width:50px;height:50px;border-radius:6px;background:linear-gradient(135deg,var(--paper-dim),#E9E1D0);flex:none;}
+#screen-checkout .sum-item h5 {font-size:13px;font-weight:700;}
+#screen-checkout .sum-item p {font-size:11.5px;color:var(--ink-soft);}
+#screen-checkout .sum-item .p {font-size:13px;font-weight:700;margin-left:auto;white-space:nowrap;}
+#screen-checkout .promo-row {display:flex;gap:8px;margin:16px 0;}
+#screen-checkout .promo-row input {flex:1;padding:10px 12px;border:1.5px solid var(--line);border-radius:5px;font-size:12.5px;}
+#screen-checkout .sum-line {display:flex;justify-content:space-between;font-size:13.5px;margin-bottom:10px;color:var(--ink-soft);}
+#screen-checkout .sum-total {display:flex;justify-content:space-between;font-size:18px;font-weight:700;margin:16px 0;padding-top:14px;border-top:1px solid var(--line);}
+#screen-checkout .check-row {display:flex;gap:9px;align-items:flex-start;font-size:12px;color:var(--ink-soft);margin-bottom:14px;}
+#screen-checkout .check-row input {margin-top:2px;}
+#screen-checkout .trust-icons {display:flex;justify-content:space-between;margin-top:20px;padding-top:18px;border-top:1px solid var(--line);}
+#screen-checkout .trust-icons div {text-align:center;font-size:10.5px;color:var(--ink-soft);}
+#screen-checkout .trust-icons svg {width:22px;height:22px;color:var(--brass-dark);margin:0 auto 6px;display:block;}
+@media(max-width:940px) {
+#screen-checkout .ck-layout {grid-template-columns:1fr;}
+#screen-checkout .form-row {grid-template-columns:1fr;}
+#screen-checkout .steps {flex-wrap:wrap;}
+
+}
+
+
+
+/* ===== Prototype Navigator (merged-file navigation) ===== */
+.proto-nav{position:sticky;top:0;z-index:500;background:#14110D;border-bottom:1px solid rgba(169,129,46,.35);}
+.proto-nav-inner{max-width:1240px;margin:0 auto;padding:0 24px;display:flex;align-items:center;justify-content:space-between;height:46px;gap:20px;}
+.proto-nav-brand{color:#B9AE9C;font-size:12px;font-weight:700;letter-spacing:.3px;white-space:nowrap;}
+.proto-nav-brand span{color:#A9812E;}
+.proto-nav-links{display:flex;gap:4px;overflow-x:auto;}
+.proto-link{padding:8px 14px;border-radius:20px;font-size:12.5px;font-weight:600;color:#B9AE9C;white-space:nowrap;transition:background .15s ease,color .15s ease;font-family:'Inter',sans-serif;}
+.proto-link:hover{color:#fff;}
+.proto-link.active{background:#A9812E;color:#fff;}
+.proto-screen{display:none;}
+.proto-screen.active{display:block;}
+@media(max-width:640px){.proto-nav-brand{display:none;}}
+
 </style>
 </head>
 <body>
@@ -334,6 +632,26 @@ tr.clickable:hover td{background:var(--paper-dim);cursor:pointer;}
     </div>
   </div>
 </div>
+
+
+
+<!-- ============================================================ -->
+<!-- PROTOTYPE NAVIGATOR — switch between the 4 merged screens -->
+<!-- ============================================================ -->
+<div class="proto-nav">
+  <div class="proto-nav-inner">
+    <div class="proto-nav-brand"><span>●</span> EMBER & CO. — Prototype Navigasi</div>
+    <div class="proto-nav-links">
+      <button class="proto-link active" data-screen="home" onclick="gotoScreen('home')">Beranda</button>
+      <button class="proto-link" data-screen="list" onclick="gotoScreen('list')">Katalog Produk</button>
+      <button class="proto-link" data-screen="detail" onclick="gotoScreen('detail')">Detail Produk</button>
+      <button class="proto-link" data-screen="checkout" onclick="gotoScreen('checkout')">Checkout</button>
+    </div>
+  </div>
+</div>
+
+<section id="screen-home" class="proto-screen active">
+
 
 <div class="mode-switch">
   <button class="active" onclick="setMode('buyer')">Tampilan Pembeli</button>
@@ -359,9 +677,9 @@ tr.clickable:hover td{background:var(--paper-dim);cursor:pointer;}
     <div class="wrap">
       <div class="logo"><span class="dot"></span>EMBER & CO.</div>
       <nav class="main">
-        <a href="#kategori">Cerutu Premium</a>
-        <a href="#kategori">Cerutu Casual</a>
-        <a href="#kategori">Aksesoris</a>
+        <a href="#" onclick="gotoScreen('list');return false;">Cerutu Premium</a>
+        <a href="#" onclick="gotoScreen('list');return false;">Cerutu Casual</a>
+        <a href="#" onclick="gotoScreen('list');return false;">Aksesoris</a>
         <a href="#produk">Promo</a>
         <a href="#member">Membership</a>
       </nav>
@@ -393,7 +711,7 @@ tr.clickable:hover td{background:var(--paper-dim);cursor:pointer;}
         <p>Cerutu premium, tembakau pipa, dan aksesoris pilihan — diseleksi langsung oleh ahli kami dan dikirim dengan penyimpanan terjaga suhu & kelembapan.</p>
         <div class="cta-row">
           <a href="#produk" class="btn btn-brass">Belanja Sekarang</a>
-          <a href="#kategori" class="btn btn-outline" style="border-color:#786C58;color:#fff;">Lihat Katalog</a>
+          <a href="#" class="btn btn-outline" style="border-color:#786C58;color:#fff;" onclick="gotoScreen('list');return false;">Lihat Katalog</a>
         </div>
         <div class="trust-row">
           <div><strong>12.000+</strong>Pelanggan terdaftar</div>
@@ -569,104 +887,6 @@ tr.clickable:hover td{background:var(--paper-dim);cursor:pointer;}
       <div class="foot-bottom"><span>© 2026 Ember & Co. Seluruh hak cipta dilindungi.</span><span>BCA · Mandiri · QRIS · Visa · Mastercard</span></div>
     </div>
   </footer>
-</div>
-
-<!-- CART DRAWER -->
-<div class="overlay" id="cartOverlay" onclick="closeDrawer('cartDrawer')"></div>
-<div class="drawer" id="cartDrawer">
-  <div class="drawer-head"><h3 class="serif">Keranjang Belanja</h3><button class="modal-close" onclick="closeDrawer('cartDrawer')">✕</button></div>
-  <div class="drawer-body" id="cartItems">
-    <div class="flex-mid" style="justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);">
-      <div class="flex-mid"><span class="prod-row-thumb"></span><div><div style="font-weight:700;font-size:13.5px;">Airlangga Grand Corona</div><div style="font-size:12px;color:var(--ink-soft);">Rp185.000</div></div></div>
-      <div class="qty-stepper"><button>-</button><span>1</span><button>+</button></div>
-    </div>
-    <div class="flex-mid" style="justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);">
-      <div class="flex-mid"><span class="prod-row-thumb"></span><div><div style="font-weight:700;font-size:13.5px;">Torch Lighter Dual Jet</div><div style="font-size:12px;color:var(--ink-soft);">Rp225.000</div></div></div>
-      <div class="qty-stepper"><button>-</button><span>1</span><button>+</button></div>
-    </div>
-  </div>
-  <div class="drawer-foot">
-    <div class="flex-mid" style="justify-content:space-between;margin-bottom:14px;font-size:14px;"><span>Subtotal</span><strong id="cartSubtotal">Rp410.000</strong></div>
-    <button class="btn btn-brass btn-block" onclick="closeDrawer('cartDrawer');openModal('checkoutModal')">Checkout</button>
-  </div>
-</div>
-
-<!-- QUICK VIEW MODAL -->
-<div class="overlay" id="quickOverlay" onclick="closeModal('quickModal')"></div>
-<div class="modal modal-lg" id="quickModal">
-  <div class="modal-head"><h3>Detail Produk</h3><button class="modal-close" onclick="closeModal('quickModal')">✕</button></div>
-  <div class="modal-body" style="display:grid;grid-template-columns:1fr 1fr;gap:30px;">
-    <div class="band-ring" style="background:repeating-linear-gradient(100deg,#8B5A2B 0 22px,#6E4620 22px 26px);height:260px;border-radius:8px;"></div>
-    <div>
-      <div class="origin" id="qOrigin" style="text-transform:uppercase;font-size:11.5px;color:var(--ink-soft);margin-bottom:6px;"></div>
-      <h3 id="qName" style="font-size:23px;margin-bottom:8px;"></h3>
-      <div class="stars">★★★★☆ <span>(120 ulasan)</span></div>
-      <p id="qDesc" style="font-size:13.5px;color:var(--ink-soft);margin:16px 0;"></p>
-      <div class="price" id="qPrice" style="font-family:'Fraunces',serif;font-size:24px;margin-bottom:18px;"></div>
-      <div class="flex-mid" style="gap:14px;margin-bottom:18px;">
-        <div class="qty-stepper"><button onclick="qChange(-1)">-</button><span id="qQty">1</span><button onclick="qChange(1)">+</button></div>
-        <button class="btn btn-brass" style="flex:1;" onclick="addFromQuick()">Tambah ke Keranjang</button>
-      </div>
-      <div style="font-size:12.5px;color:var(--ink-soft);">✓ Stok tersedia &nbsp; ✓ Dikirim dengan humidipak &nbsp; ✓ Bisa retur 2 hari</div>
-    </div>
-  </div>
-</div>
-
-<!-- CHECKOUT MODAL -->
-<div class="overlay" id="checkoutOverlay" onclick="closeModal('checkoutModal')"></div>
-<div class="modal modal-lg" id="checkoutModal">
-  <div class="modal-head"><h3>Checkout</h3><button class="modal-close" onclick="closeModal('checkoutModal')">✕</button></div>
-  <div class="modal-body" style="display:grid;grid-template-columns:1.3fr 1fr;gap:30px;">
-    <div>
-      <h4 style="font-size:14px;margin-bottom:14px;">Alamat Pengiriman</h4>
-      <div class="form-row"><div class="form-group"><label>Nama Penerima</label><input placeholder="Nama lengkap"></div><div class="form-group"><label>No. HP</label><input placeholder="08xx-xxxx-xxxx"></div></div>
-      <div class="form-group"><label>Alamat Lengkap</label><textarea rows="3" placeholder="Jalan, nomor rumah, kelurahan, kecamatan"></textarea></div>
-      <div class="form-row"><div class="form-group"><label>Kota</label><input placeholder="Kota"></div><div class="form-group"><label>Kode Pos</label><input placeholder="Kode pos"></div></div>
-      <h4 style="font-size:14px;margin:20px 0 14px;">Metode Pembayaran</h4>
-      <label class="radio-card"><input type="radio" name="pay" checked> Transfer Bank (BCA/Mandiri)</label>
-      <label class="radio-card"><input type="radio" name="pay"> QRIS</label>
-      <label class="radio-card"><input type="radio" name="pay"> Kartu Kredit/Debit</label>
-      <label class="radio-card"><input type="radio" name="pay"> Bayar di Tempat (COD)</label>
-    </div>
-    <div>
-      <div class="card" style="background:var(--paper-dim);border:none;">
-        <h4 style="font-size:14px;margin-bottom:14px;">Ringkasan Pesanan</h4>
-        <div class="flex-mid" style="justify-content:space-between;font-size:13px;margin-bottom:8px;"><span>Subtotal</span><span>Rp410.000</span></div>
-        <div class="flex-mid" style="justify-content:space-between;font-size:13px;margin-bottom:8px;"><span>Ongkos Kirim</span><span>Rp0</span></div>
-        <div class="flex-mid" style="justify-content:space-between;font-size:13px;margin-bottom:14px;padding-bottom:14px;border-bottom:1px solid var(--line);"><span>Diskon</span><span>-Rp20.000</span></div>
-        <div class="flex-mid" style="justify-content:space-between;font-size:16px;font-weight:700;margin-bottom:18px;"><span>Total</span><span>Rp390.000</span></div>
-        <button class="btn btn-brass btn-block" onclick="placeOrder()">Buat Pesanan</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- TRACK ORDER MODAL -->
-<div class="overlay" id="trackOverlay" onclick="closeModal('trackModal')"></div>
-<div class="modal modal-sm" id="trackModal">
-  <div class="modal-head"><h3>Lacak Pesanan</h3><button class="modal-close" onclick="closeModal('trackModal')">✕</button></div>
-  <div class="modal-body">
-    <div class="form-group"><label>Nomor Pesanan</label><input placeholder="Contoh: ORD-2291"></div>
-    <button class="btn btn-brass btn-block" style="margin-bottom:20px;">Lacak</button>
-    <div class="stepper-row">
-      <div class="step done"><div class="dot3">✓</div><span>Dipesan</span></div>
-      <div class="step done"><div class="dot3">✓</div><span>Diproses</span></div>
-      <div class="step now"><div class="dot3">●</div><span>Dikirim</span></div>
-      <div class="step"><div class="dot3">4</div><span>Selesai</span></div>
-    </div>
-  </div>
-</div>
-
-<!-- ACCOUNT MODAL -->
-<div class="overlay" id="accountOverlay" onclick="closeModal('accountModal')"></div>
-<div class="modal modal-sm" id="accountModal">
-  <div class="modal-head"><h3>Akun Saya</h3><button class="modal-close" onclick="closeModal('accountModal')">✕</button></div>
-  <div class="modal-body">
-    <div class="form-group"><label>Email</label><input type="email" placeholder="nama@email.com"></div>
-    <div class="form-group"><label>Kata Sandi</label><input type="password" placeholder="••••••••"></div>
-    <button class="btn btn-brass btn-block" style="margin-bottom:12px;">Masuk</button>
-    <button class="btn btn-outline btn-block">Buat Akun Baru</button>
-  </div>
 </div>
 
 <!-- ============================================================ -->
@@ -901,7 +1121,434 @@ tr.clickable:hover td{background:var(--paper-dim);cursor:pointer;}
   </div>
 </div>
 
+
+
+</section>
+
+<section id="screen-list" class="proto-screen">
+
+<div class="topbar"><div class="wrap"><span>🚚 Gratis ongkir di atas Rp750.000</span><span>🔞 Khusus usia 18+</span></div></div>
+<header class="site">
+  <div class="wrap">
+    <a href="#" class="logo" onclick="gotoScreen('home');return false;"><span class="dot"></span>EMBER & CO.</a>
+    <nav class="main">
+      <a href="#" class="active" onclick="gotoScreen('list');return false;">Cerutu Premium</a>
+      <a href="#" onclick="gotoScreen('list');return false;">Cerutu Casual</a>
+      <a href="#" onclick="gotoScreen('list');return false;">Aksesoris</a>
+      <a href="#member" onclick="gotoScreen('home')">Membership</a>
+    </nav>
+    <div class="search-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input placeholder="Cari cerutu, brand…"></div>
+    <div class="head-icons">
+      <button class="icon-btn" title="Wishlist"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7.5-4.7-10-9.3C.4 8 2 4 6 4c2.2 0 3.8 1.2 6 3.6C14.2 5.2 15.8 4 18 4c4 0 5.6 4 4 7.7C19.5 16.3 12 21 12 21z"/></svg></button>
+      <button class="icon-btn" title="Akun" onclick="openModal('accountModal')"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 21c1.5-4.5 5-6 8-6s6.5 1.5 8 6"/></svg></button>
+      <a href="#" class="icon-btn" onclick="gotoScreen('checkout');return false;" title="Keranjang"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 4h2l2.4 12.4a2 2 0 002 1.6h8.2a2 2 0 002-1.6L21 8H6"/><circle cx="9" cy="21" r="1.2"/><circle cx="18" cy="21" r="1.2"/></svg><span class="badge">3</span></a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="#" onclick="gotoScreen('home');return false;">Beranda</a> / <span>Cerutu Premium</span></div>
+  <div class="page-head">
+    <div><h1>Cerutu Premium</h1><p>142 produk ditemukan dari koleksi lokal & impor pilihan</p></div>
+    <div class="sort-row"><span style="font-size:13px;color:var(--ink-soft);">Urutkan:</span>
+      <select><option>Paling Relevan</option><option>Harga: Terendah</option><option>Harga: Tertinggi</option><option>Terbaru</option><option>Rating Tertinggi</option></select>
+    </div>
+  </div>
+
+  <div class="chip-row">
+    <div class="chip">Indonesia ✕</div><div class="chip">Rp100rb–Rp500rb ✕</div><div class="chip">Rating 4★+ ✕</div>
+    <button class="btn btn-outline" style="padding:6px 12px;font-size:12px;">Hapus Semua</button>
+  </div>
+
+  <div class="shop-layout">
+    <aside class="filter-box">
+      <h4>Filter Produk</h4>
+      <div class="filter-group"><h5>Kategori</h5>
+        <label class="check-row"><span class="l"><input type="checkbox" checked>Cerutu Premium</span><span class="n">142</span></label>
+        <label class="check-row"><span class="l"><input type="checkbox">Cerutu Casual</span><span class="n">96</span></label>
+        <label class="check-row"><span class="l"><input type="checkbox">Cigarillos</span><span class="n">38</span></label>
+      </div>
+      <div class="filter-group"><h5>Rentang Harga</h5>
+        <div class="price-inputs"><input placeholder="Min"><span>—</span><input placeholder="Maks"></div>
+        <button class="btn btn-outline" style="width:100%;padding:8px;font-size:12.5px;">Terapkan</button>
+      </div>
+      <div class="filter-group"><h5>Asal Cerutu</h5>
+        <label class="check-row"><span class="l"><input type="checkbox" checked>Indonesia</span><span class="n">88</span></label>
+        <label class="check-row"><span class="l"><input type="checkbox">Nikaragua</span><span class="n">24</span></label>
+        <label class="check-row"><span class="l"><input type="checkbox">Dominika</span><span class="n">18</span></label>
+        <label class="check-row"><span class="l"><input type="checkbox">Kuba</span><span class="n">12</span></label>
+      </div>
+      <div class="filter-group"><h5>Tingkat Kekuatan</h5>
+        <div class="swatch-row"><span class="swatch sel">Ringan</span><span class="swatch">Sedang</span><span class="swatch">Kuat</span></div>
+      </div>
+      <div class="filter-group"><h5>Ukuran / Format</h5>
+        <label class="check-row"><span class="l"><input type="checkbox">Per Batang</span><span class="n">64</span></label>
+        <label class="check-row"><span class="l"><input type="checkbox">Box isi 5</span><span class="n">40</span></label>
+        <label class="check-row"><span class="l"><input type="checkbox">Box isi 10+</span><span class="n">38</span></label>
+      </div>
+      <div class="filter-group"><h5>Rating Minimum</h5>
+        <label class="check-row"><span class="l"><input type="checkbox" checked>★★★★☆ ke atas</span></label>
+        <label class="check-row"><span class="l"><input type="checkbox">★★★☆☆ ke atas</span></label>
+      </div>
+      <button class="btn btn-outline" style="width:100%;">Reset Filter</button>
+    </aside>
+
+    <div>
+      <div class="result-count">Menampilkan 1–12 dari 142 produk</div>
+      <div class="prod-grid">
+        <a class="prod-card" href="#" onclick="gotoScreen('detail');return false;"><div class="prod-thumb"><span class="tag pill pill-hot">Terlaris</span><div class="cig"></div><div class="fav">♥</div></div><div class="prod-info"><div class="origin">Indonesia · Premium</div><h4>Airlangga Grand Corona</h4><div class="stars">★★★★☆ <span>(214)</span></div><div class="prod-bottom"><span class="price">Rp185.000</span><button class="add-btn">+</button></div></div></a>
+        <a class="prod-card" href="#" onclick="gotoScreen('detail');return false;"><div class="prod-thumb"><span class="tag pill pill-new">Baru</span><div class="cig"></div><div class="fav">♥</div></div><div class="prod-info"><div class="origin">Nikaragua · Impor</div><h4>Esperitu Special Box</h4><div class="stars">★★★★★ <span>(58)</span></div><div class="prod-bottom"><span class="price">Rp1.100.000</span><button class="add-btn">+</button></div></div></a>
+        <a class="prod-card" href="#" onclick="gotoScreen('detail');return false;"><div class="prod-thumb"><span class="tag pill pill-off">-15%</span><div class="cig"></div><div class="fav">♥</div></div><div class="prod-info"><div class="origin">Indonesia · Casual</div><h4>Adipati Panatella Box-10</h4><div class="stars">★★★★☆ <span>(96)</span></div><div class="prod-bottom"><span class="price"><span class="old">Rp125.000</span>Rp105.000</span><button class="add-btn">+</button></div></div></a>
+        <a class="prod-card" href="#" onclick="gotoScreen('detail');return false;"><div class="prod-thumb"><div class="cig"></div><div class="fav">♥</div></div><div class="prod-info"><div class="origin">Indonesia · Premium</div><h4>Bedjo Robusto Box-10</h4><div class="stars">★★★★☆ <span>(74)</span></div><div class="prod-bottom"><span class="price">Rp625.000</span><button class="add-btn">+</button></div></div></a>
+        <a class="prod-card" href="#" onclick="gotoScreen('detail');return false;"><div class="prod-thumb"><span class="tag pill pill-hot">Terlaris</span><div class="cig"></div><div class="fav">♥</div></div><div class="prod-info"><div class="origin">Indonesia · Premium</div><h4>Sultan Vintage Robusto</h4><div class="stars">★★★★★ <span>(163)</span></div><div class="prod-bottom"><span class="price">Rp175.000</span><button class="add-btn">+</button></div></div></a>
+        <a class="prod-card" href="#" onclick="gotoScreen('detail');return false;"><div class="prod-thumb"><div class="cig"></div><div class="fav">♥</div></div><div class="prod-info"><div class="origin">Indonesia · Premium</div><h4>Maumere Clove Corona</h4><div class="stars">★★★★☆ <span>(52)</span></div><div class="prod-bottom"><span class="price">Rp550.000</span><button class="add-btn">+</button></div></div></a>
+        <a class="prod-card" href="#" onclick="gotoScreen('detail');return false;"><div class="prod-thumb"><span class="tag pill pill-new">Baru</span><div class="cig"></div><div class="fav">♥</div></div><div class="prod-info"><div class="origin">Turki · Impor</div><h4>Ataturk Gallipoli Box-10</h4><div class="stars">★★★★★ <span>(19)</span></div><div class="prod-bottom"><span class="price">Rp1.900.000</span><button class="add-btn">+</button></div></div></a>
+        <a class="prod-card" href="#" onclick="gotoScreen('detail');return false;"><div class="prod-thumb"><div class="cig"></div><div class="fav">♥</div></div><div class="prod-info"><div class="origin">Indonesia · Casual</div><h4>Ramayana Corona Box-10</h4><div class="stars">★★★★☆ <span>(41)</span></div><div class="prod-bottom"><span class="price">Rp150.000</span><button class="add-btn">+</button></div></div></a>
+        <a class="prod-card" href="#" onclick="gotoScreen('detail');return false;"><div class="prod-thumb"><span class="tag pill pill-off">-10%</span><div class="cig"></div><div class="fav">♥</div></div><div class="prod-info"><div class="origin">Indonesia · Premium</div><h4>Wismilak Seleccion Robusto</h4><div class="stars">★★★★☆ <span>(88)</span></div><div class="prod-bottom"><span class="price">Rp150.000</span><button class="add-btn">+</button></div></div></a>
+        <a class="prod-card" href="#" onclick="gotoScreen('detail');return false;"><div class="prod-thumb"><div class="cig"></div><div class="fav">♥</div></div><div class="prod-info"><div class="origin">Aksesoris</div><h4>Humidor Kayu Cedar 50ct</h4><div class="stars">★★★★★ <span>(37)</span></div><div class="prod-bottom"><span class="price">Rp950.000</span><button class="add-btn">+</button></div></div></a>
+        <a class="prod-card" href="#" onclick="gotoScreen('detail');return false;"><div class="prod-thumb"><div class="cig"></div><div class="fav">♥</div></div><div class="prod-info"><div class="origin">Indonesia · Premium</div><h4>Airlangga Half Corona</h4><div class="stars">★★★★☆ <span>(29)</span></div><div class="prod-bottom"><span class="price">Rp69.000</span><button class="add-btn">+</button></div></div></a>
+        <a class="prod-card" href="#" onclick="gotoScreen('detail');return false;"><div class="prod-thumb"><span class="tag pill pill-new">Baru</span><div class="cig"></div><div class="fav">♥</div></div><div class="prod-info"><div class="origin">Nikaragua · Impor</div><h4>Esperitu Iconica Box-3</h4><div class="stars">★★★★★ <span>(14)</span></div><div class="prod-bottom"><span class="price">Rp625.000</span><button class="add-btn">+</button></div></div></a>
+      </div>
+      <div class="pagination"><button>‹</button><button class="active">1</button><button>2</button><button>3</button><button>…</button><button>12</button><button>›</button></div>
+    </div>
+  </div>
+</div>
+
+<footer><div class="wrap">
+  <div>© 2026 Ember & Co. — Toko cerutu & tembakau terpercaya.</div>
+  <div class="foot-bottom"><span>Belanja · Bantuan · Tentang Kami · Legal</span><span>BCA · Mandiri · QRIS · Visa · Mastercard</span></div>
+</div></footer>
+
+</section>
+
+<section id="screen-detail" class="proto-screen">
+
+<div class="topbar"><div class="wrap"><span>🚚 Gratis ongkir di atas Rp750.000</span><span>🔞 Khusus usia 18+</span></div></div>
+<header class="site">
+  <div class="wrap">
+    <a href="#" class="logo" onclick="gotoScreen('home');return false;"><span class="dot"></span>EMBER & CO.</a>
+    <nav class="main"><a href="#" onclick="gotoScreen('list');return false;">Cerutu Premium</a><a href="#" onclick="gotoScreen('list');return false;">Cerutu Casual</a><a href="#" onclick="gotoScreen('list');return false;">Aksesoris</a></nav>
+    <div class="search-box"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg><input placeholder="Cari cerutu, brand…"></div>
+    <div class="head-icons">
+      <button class="icon-btn" title="Wishlist"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7.5-4.7-10-9.3C.4 8 2 4 6 4c2.2 0 3.8 1.2 6 3.6C14.2 5.2 15.8 4 18 4c4 0 5.6 4 4 7.7C19.5 16.3 12 21 12 21z"/></svg></button>
+      <a href="#" class="icon-btn" onclick="gotoScreen('checkout');return false;" title="Keranjang"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 4h2l2.4 12.4a2 2 0 002 1.6h8.2a2 2 0 002-1.6L21 8H6"/><circle cx="9" cy="21" r="1.2"/><circle cx="18" cy="21" r="1.2"/></svg><span class="badge">3</span></a>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="crumb"><a href="#" onclick="gotoScreen('home');return false;">Beranda</a> / <a href="#" onclick="gotoScreen('list');return false;">Cerutu Premium</a> / <span>Airlangga Grand Corona</span></div>
+
+  <div class="detail-grid">
+    <div>
+      <div class="gallery-main"><div class="cig"></div><div class="band">AIRLANGGA</div></div>
+      <div class="thumb-row">
+        <div class="t active"></div><div class="t"></div><div class="t"></div><div class="t"></div>
+      </div>
+    </div>
+
+    <div>
+      <div class="p-origin">Indonesia · Cerutu Premium</div>
+      <h1 class="p-title">Airlangga Grand Corona <span class="pill pill-hot" style="vertical-align:middle;">Terlaris</span></h1>
+      <div class="p-meta"><span class="stars">★★★★☆ <span>4.6 (214 ulasan)</span></span><span>·</span><span>362 terjual bulan ini</span><span>·</span><span class="pill pill-stock">Stok tersedia</span></div>
+
+      <div class="p-price-row"><span class="p-price">Rp185.000</span><span class="p-old">Rp210.000</span><span class="p-save">Hemat 12%</span></div>
+
+      <div class="variant-group"><h5>Pilih Kemasan</h5>
+        <div class="variant-row">
+          <button class="variant-btn">Per Batang</button>
+          <button class="variant-btn sel">Pack isi 3</button>
+          <button class="variant-btn">Box isi 10</button>
+        </div>
+      </div>
+      <div class="variant-group"><h5>Tingkat Kekuatan</h5>
+        <div class="variant-row"><button class="variant-btn sel">Sedang</button><button class="variant-btn">Kuat</button></div>
+      </div>
+
+      <div class="variant-group"><h5>Jumlah</h5>
+        <div class="qty-stepper"><button>-</button><span>1</span><button>+</button></div>
+      </div>
+
+      <div class="buy-row">
+        <button class="btn btn-outline" onclick="addDemo('Airlangga Grand Corona',185000)">Tambah Keranjang</button>
+        <a href="#" class="btn btn-brass" onclick="gotoScreen('checkout');return false;">Beli Sekarang</a>
+        <div class="icon-circle" title="Wishlist"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 21s-7.5-4.7-10-9.3C.4 8 2 4 6 4c2.2 0 3.8 1.2 6 3.6C14.2 5.2 15.8 4 18 4c4 0 5.6 4 4 7.7C19.5 16.3 12 21 12 21z"/></svg></div>
+        <div class="icon-circle" title="Bagikan"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 10.6l6.8-3.7M8.6 13.4l6.8 3.7"/></svg></div>
+      </div>
+
+      <div class="trust-mini">
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/></svg>100% keaslian terjamin</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="7" width="14" height="10" rx="1"/><path d="M16 10h3l3 3v4h-6z"/></svg>Dikirim dengan humidipak</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Retur mudah 2 hari</div>
+        <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>Konsultasi cigar specialist</div>
+      </div>
+
+      <div class="ship-check">
+        <input placeholder="Masukkan kode pos untuk cek ongkir & estimasi tiba">
+        <button class="btn btn-ink" style="padding:10px 18px;">Cek</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="tabs-nav">
+    <button class="active" onclick="tab(this,'t-desc')">Deskripsi</button>
+    <button onclick="tab(this,'t-spec')">Spesifikasi</button>
+    <button onclick="tab(this,'t-store')">Cara Penyimpanan</button>
+    <button onclick="tab(this,'t-rev')">Ulasan (214)</button>
+  </div>
+
+  <div class="tab-panel active" id="t-desc" style="max-width:760px;padding-bottom:70px;">
+    <p style="margin-bottom:14px;">Airlangga Grand Corona adalah cerutu premium asal Indonesia yang dibuat dari daun tembakau Jawa pilihan, diproses dengan metode fermentasi tradisional untuk menghasilkan rasa yang seimbang antara manis dan earthy.</p>
+    <p style="margin-bottom:14px;">Cocok dinikmati oleh penikmat cerutu tingkat pemula hingga menengah berkat karakter rasa medium-bodied yang tidak terlalu berat, dengan aroma khas cengkeh dan kayu yang lembut di setiap hisapan.</p>
+    <p>Setiap batang digulung dengan tangan (hand-rolled) oleh pengrajin berpengalaman dan melalui proses quality control ketat sebelum dikemas.</p>
+  </div>
+
+  <div class="tab-panel" id="t-spec" style="padding-bottom:70px;">
+    <table class="spec-table">
+      <tr><td>Asal Tembakau</td><td>Jawa Timur, Indonesia</td></tr>
+      <tr><td>Wrapper</td><td>Sumatra Natural Leaf</td></tr>
+      <tr><td>Filler</td><td>Long Filler, tembakau lokal fermentasi</td></tr>
+      <tr><td>Tingkat Kekuatan</td><td>Sedang (Medium-bodied)</td></tr>
+      <tr><td>Ring Gauge</td><td>44</td></tr>
+      <tr><td>Panjang</td><td>127 mm (5 inci)</td></tr>
+      <tr><td>Estimasi Waktu Nikmat</td><td>35–45 menit</td></tr>
+      <tr><td>Isi Kemasan</td><td>3 batang per pack</td></tr>
+    </table>
+  </div>
+
+  <div class="tab-panel" id="t-store" style="max-width:760px;padding-bottom:70px;">
+    <p style="margin-bottom:14px;">Simpan cerutu pada suhu 18–21°C dengan kelembapan relatif 68–72% menggunakan humidor atau kotak kedap udara yang dilengkapi humidifier.</p>
+    <p>Hindari paparan sinar matahari langsung dan perubahan suhu drastis agar wrapper tidak retak dan rasa tetap terjaga hingga berbulan-bulan.</p>
+  </div>
+
+  <div class="tab-panel" id="t-rev" style="padding-bottom:70px;">
+    <div class="rev-summary">
+      <div class="rev-big"><div class="n">4.6</div><div class="stars">★★★★☆</div><p style="font-size:12.5px;color:var(--ink-soft);margin-top:8px;">Berdasarkan 214 ulasan</p><button class="btn btn-outline" style="margin-top:14px;width:100%;">Tulis Ulasan</button></div>
+      <div>
+        <div class="bar-row"><span>5★</span><div class="bar-track"><div class="bar-fill" style="width:68%;"></div></div><span>146</span></div>
+        <div class="bar-row"><span>4★</span><div class="bar-track"><div class="bar-fill" style="width:20%;"></div></div><span>43</span></div>
+        <div class="bar-row"><span>3★</span><div class="bar-track"><div class="bar-fill" style="width:7%;"></div></div><span>15</span></div>
+        <div class="bar-row"><span>2★</span><div class="bar-track"><div class="bar-fill" style="width:3%;"></div></div><span>6</span></div>
+        <div class="bar-row"><span>1★</span><div class="bar-track"><div class="bar-fill" style="width:2%;"></div></div><span>4</span></div>
+      </div>
+    </div>
+    <div class="review-item"><div class="review-top"><strong>Raka P. — ★★★★★</strong><span>2 hari lalu</span></div><p>Rasa seimbang, tidak terlalu kuat cocok untuk santai sore. Pengemasan rapi dan humidipak masih lembab saat sampai.</p></div>
+    <div class="review-item"><div class="review-top"><strong>Dimas A. — ★★★★☆</strong><span>5 hari lalu</span></div><p>Kualitas oke sesuai harga, pengiriman agak lama karena weekend tapi overall puas dengan produknya.</p></div>
+    <div class="review-item"><div class="review-top"><strong>Bayu S. — ★★★★★</strong><span>1 minggu lalu</span></div><p>Best seller memang beralasan, aroma cengkehnya khas banget. Bakal repeat order lagi.</p></div>
+  </div>
+
+  <div class="rel-head"><h2 style="font-size:26px;">Produk Terkait</h2></div>
+  <div class="prod-grid" style="margin-bottom:70px;">
+    <a href="#" class="prod-card" onclick="gotoScreen('detail');return false;"><div class="prod-thumb"><div class="cig"></div></div><div class="prod-info"><h4>Sultan Vintage Robusto</h4><div class="price">Rp175.000</div></div></a>
+    <a href="#" class="prod-card" onclick="gotoScreen('detail');return false;"><div class="prod-thumb"><div class="cig"></div></div><div class="prod-info"><h4>Bedjo Robusto Box-10</h4><div class="price">Rp625.000</div></div></a>
+    <a href="#" class="prod-card" onclick="gotoScreen('detail');return false;"><div class="prod-thumb"><div class="cig"></div></div><div class="prod-info"><h4>Maumere Clove Corona</h4><div class="price">Rp550.000</div></div></a>
+    <a href="#" class="prod-card" onclick="gotoScreen('detail');return false;"><div class="prod-thumb"><div class="cig"></div></div><div class="prod-info"><h4>Wismilak Seleccion</h4><div class="price">Rp150.000</div></div></a>
+  </div>
+</div>
+
+<footer><div class="wrap">
+  <div>© 2026 Ember & Co. — Toko cerutu & tembakau terpercaya.</div>
+  <div class="foot-bottom"><span>Belanja · Bantuan · Tentang Kami · Legal</span><span>BCA · Mandiri · QRIS · Visa · Mastercard</span></div>
+</div></footer>
+
+
+
+</section>
+
+<section id="screen-checkout" class="proto-screen">
+
+<header class="ck"><div class="wrap">
+  <a href="#" class="logo" onclick="gotoScreen('home');return false;"><span class="dot"></span>EMBER & CO.</a>
+  <div class="secure"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>Checkout Aman & Terenkripsi</div>
+</div></header>
+
+<div class="steps">
+  <div class="step done"><div class="n">✓</div><span>Keranjang</span></div>
+  <div class="step now"><div class="n">2</div><span>Pengiriman</span></div>
+  <div class="step"><div class="n">3</div><span>Pembayaran</span></div>
+  <div class="step"><div class="n">4</div><span>Konfirmasi</span></div>
+</div>
+
+<div class="wrap">
+  <div class="ck-layout">
+    <div>
+      <!-- ALAMAT -->
+      <div class="card">
+        <div class="card-head"><h3><span class="num">1</span>Alamat Pengiriman</h3><button class="link-add" onclick="document.getElementById('newAddr').classList.toggle('show')">+ Alamat Baru</button></div>
+        <label class="addr-card sel"><input type="radio" name="addr" checked>
+          <div><h5>Raka Pratama <span class="addr-tag">Rumah</span></h5><p>Jl. Melati No. 12, RT03/RW05, Kel. Cipete, Jakarta Selatan, DKI Jakarta 12410 · 0812-3456-7890</p></div>
+        </label>
+        <label class="addr-card"><input type="radio" name="addr">
+          <div><h5>Raka Pratama <span class="addr-tag">Kantor</span></h5><p>Menara Sudirman Lt.15, Jl. Jend. Sudirman Kav.60, Jakarta Selatan, DKI Jakarta 12190 · 0812-3456-7890</p></div>
+        </label>
+        <div class="new-addr-form" id="newAddr">
+          <div class="form-row"><div class="form-group"><label>Nama Penerima</label><input placeholder="Nama lengkap"></div><div class="form-group"><label>No. HP</label><input placeholder="08xx-xxxx-xxxx"></div></div>
+          <div class="form-group"><label>Alamat Lengkap</label><textarea rows="2" placeholder="Jalan, nomor rumah, RT/RW, kelurahan, kecamatan"></textarea></div>
+          <div class="form-row"><div class="form-group"><label>Kota</label><input placeholder="Kota"></div><div class="form-group"><label>Provinsi</label><input placeholder="Provinsi"></div></div>
+          <div class="form-row"><div class="form-group"><label>Kode Pos</label><input placeholder="Kode pos"></div><div class="form-group"><label>Label Alamat</label><select><option>Rumah</option><option>Kantor</option><option>Lainnya</option></select></div></div>
+          <button class="btn btn-outline btn-block">Simpan Alamat</button>
+        </div>
+      </div>
+
+      <!-- METODE PENGIRIMAN -->
+      <div class="card">
+        <div class="card-head"><h3><span class="num">2</span>Metode Pengiriman</h3></div>
+        <label class="ship-opt sel"><div class="l"><input type="radio" name="ship" checked><div><h5>Reguler (JNE/J&T)</h5><p>Estimasi tiba 2–3 hari kerja</p></div></div><span class="price">Gratis</span></label>
+        <label class="ship-opt"><div class="l"><input type="radio" name="ship"><div><h5>Express</h5><p>Estimasi tiba 1 hari kerja</p></div></div><span class="price">Rp25.000</span></label>
+        <label class="ship-opt"><div class="l"><input type="radio" name="ship"><div><h5>Same-Day (Jabodetabek)</h5><p>Tiba hari ini sebelum pukul 21.00</p></div></div><span class="price">Rp45.000</span></label>
+      </div>
+
+      <!-- PEMBAYARAN -->
+      <div class="card">
+        <div class="card-head"><h3><span class="num">3</span>Metode Pembayaran</h3></div>
+        <div class="pay-opt sel" onclick="selPay(this)">
+          <div class="pay-head"><div class="l"><input type="radio" name="pay" checked>Transfer Bank</div></div>
+          <div class="pay-body">Transfer ke rekening virtual account yang akan dibuat otomatis setelah pesanan dikonfirmasi.<div class="bank-logos"><span>BCA</span><span>MANDIRI</span><span>BNI</span></div></div>
+        </div>
+        <div class="pay-opt" onclick="selPay(this)">
+          <div class="pay-head"><div class="l"><input type="radio" name="pay">QRIS</div></div>
+          <div class="pay-body">Scan kode QR menggunakan aplikasi bank atau e-wallet favorit kamu untuk pembayaran instan.</div>
+        </div>
+        <div class="pay-opt" onclick="selPay(this)">
+          <div class="pay-head"><div class="l"><input type="radio" name="pay">Kartu Kredit / Debit</div></div>
+          <div class="pay-body"><div class="form-row"><input placeholder="Nomor Kartu" style="grid-column:1/3;padding:10px;border:1.5px solid var(--line);border-radius:5px;"></div><div class="form-row" style="margin-top:8px;"><input placeholder="MM/YY" style="padding:10px;border:1.5px solid var(--line);border-radius:5px;"><input placeholder="CVV" style="padding:10px;border:1.5px solid var(--line);border-radius:5px;"></div></div>
+        </div>
+        <div class="pay-opt" onclick="selPay(this)">
+          <div class="pay-head"><div class="l"><input type="radio" name="pay">Bayar di Tempat (COD)</div></div>
+          <div class="pay-body">Bayar tunai langsung ke kurir saat paket tiba. Tersedia untuk area Jabodetabek dengan maksimal Rp1.000.000.</div>
+        </div>
+      </div>
+
+      <!-- CATATAN -->
+      <div class="card">
+        <div class="card-head"><h3><span class="num">4</span>Catatan Tambahan</h3></div>
+        <div class="form-group"><textarea rows="3" placeholder="Contoh: titip di resepsionis, hubungi sebelum kirim, dll (opsional)"></textarea></div>
+      </div>
+    </div>
+
+    <!-- RINGKASAN -->
+    <div class="summary-box">
+      <div class="card">
+        <h3 style="font-size:17px;margin-bottom:16px;">Ringkasan Pesanan</h3>
+        <div class="sum-item"><div class="sum-thumb"></div><div><h5>Airlangga Grand Corona</h5><p>Pack isi 3 · Qty 2</p></div><div class="p">Rp370.000</div></div>
+        <div class="sum-item"><div class="sum-thumb"></div><div><h5>Torch Lighter Dual Jet</h5><p>Qty 1</p></div><div class="p">Rp225.000</div></div>
+        <div class="sum-item" style="border-bottom:none;"><div class="sum-thumb"></div><div><h5>Sultan Vintage Edmundo</h5><p>Box isi 12 · Qty 1</p></div><div class="p">Rp2.220.000</div></div>
+
+        <div class="promo-row"><input placeholder="Kode promo"><button class="btn btn-outline" style="padding:10px 16px;">Pakai</button></div>
+
+        <div class="sum-line"><span>Subtotal (4 item)</span><span>Rp2.815.000</span></div>
+        <div class="sum-line"><span>Ongkos Kirim</span><span>Gratis</span></div>
+        <div class="sum-line"><span>Diskon Promo</span><span>-Rp50.000</span></div>
+        <div class="sum-total"><span>Total</span><span>Rp2.765.000</span></div>
+
+        <label class="check-row"><input type="checkbox" checked>Saya mengonfirmasi berusia 18 tahun ke atas dan memahami risiko konsumsi tembakau.</label>
+        <label class="check-row"><input type="checkbox" checked>Saya menyetujui <a href="#" style="color:var(--brass-dark);font-weight:700;">Syarat & Ketentuan</a> serta Kebijakan Privasi.</label>
+
+        <button class="btn btn-brass btn-block" onclick="placeOrderFull()">Buat Pesanan · Rp2.765.000</button>
+
+        <div class="trust-icons">
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="5" y="11" width="14" height="9" rx="2"/><path d="M8 11V7a4 4 0 018 0v4"/></svg>Pembayaran Aman</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l8 4v6c0 5-3.5 8-8 10-4.5-2-8-5-8-10V6l8-4z"/></svg>Garansi Keaslian</div>
+          <div><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M9 12l2 2 4-4"/></svg>Retur 2 Hari</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</section>
+
+<!-- ============================================================ -->
+<!-- GLOBAL OVERLAYS — cart drawer & modals, reachable from every screen -->
+<!-- ============================================================ -->
+<!-- CART DRAWER -->
+<div class="overlay" id="cartOverlay" onclick="closeDrawer('cartDrawer')"></div>
+<div class="drawer" id="cartDrawer">
+  <div class="drawer-head"><h3 class="serif">Keranjang Belanja</h3><button class="modal-close" onclick="closeDrawer('cartDrawer')">✕</button></div>
+  <div class="drawer-body" id="cartItems">
+    <div class="flex-mid" style="justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);">
+      <div class="flex-mid"><span class="prod-row-thumb"></span><div><div style="font-weight:700;font-size:13.5px;">Airlangga Grand Corona</div><div style="font-size:12px;color:var(--ink-soft);">Rp185.000</div></div></div>
+      <div class="qty-stepper"><button>-</button><span>1</span><button>+</button></div>
+    </div>
+    <div class="flex-mid" style="justify-content:space-between;padding:12px 0;border-bottom:1px solid var(--line);">
+      <div class="flex-mid"><span class="prod-row-thumb"></span><div><div style="font-weight:700;font-size:13.5px;">Torch Lighter Dual Jet</div><div style="font-size:12px;color:var(--ink-soft);">Rp225.000</div></div></div>
+      <div class="qty-stepper"><button>-</button><span>1</span><button>+</button></div>
+    </div>
+  </div>
+  <div class="drawer-foot">
+    <div class="flex-mid" style="justify-content:space-between;margin-bottom:14px;font-size:14px;"><span>Subtotal</span><strong id="cartSubtotal">Rp410.000</strong></div>
+    <button class="btn btn-brass btn-block" onclick="closeDrawer('cartDrawer');gotoScreen('checkout')">Checkout</button>
+  </div>
+</div>
+
+<!-- QUICK VIEW MODAL -->
+<div class="overlay" id="quickOverlay" onclick="closeModal('quickModal')"></div>
+<div class="modal modal-lg" id="quickModal">
+  <div class="modal-head"><h3>Detail Produk</h3><button class="modal-close" onclick="closeModal('quickModal')">✕</button></div>
+  <div class="modal-body" style="display:grid;grid-template-columns:1fr 1fr;gap:30px;">
+    <div class="band-ring" style="background:repeating-linear-gradient(100deg,#8B5A2B 0 22px,#6E4620 22px 26px);height:260px;border-radius:8px;"></div>
+    <div>
+      <div class="origin" id="qOrigin" style="text-transform:uppercase;font-size:11.5px;color:var(--ink-soft);margin-bottom:6px;"></div>
+      <h3 id="qName" style="font-size:23px;margin-bottom:8px;"></h3>
+      <div class="stars">★★★★☆ <span>(120 ulasan)</span></div>
+      <p id="qDesc" style="font-size:13.5px;color:var(--ink-soft);margin:16px 0;"></p>
+      <div class="price" id="qPrice" style="font-family:'Fraunces',serif;font-size:24px;margin-bottom:18px;"></div>
+      <div class="flex-mid" style="gap:14px;margin-bottom:18px;">
+        <div class="qty-stepper"><button onclick="qChange(-1)">-</button><span id="qQty">1</span><button onclick="qChange(1)">+</button></div>
+        <button class="btn btn-brass" style="flex:1;" onclick="addFromQuick()">Tambah ke Keranjang</button>
+      </div>
+      <button class="btn btn-outline btn-block" style="margin-bottom:12px;" onclick="closeModal('quickModal');gotoScreen('detail')">Lihat Detail Lengkap</button>
+      <div style="font-size:12.5px;color:var(--ink-soft);">✓ Stok tersedia &nbsp; ✓ Dikirim dengan humidipak &nbsp; ✓ Bisa retur 2 hari</div>
+    </div>
+  </div>
+</div>
+
+<!-- TRACK ORDER MODAL -->
+<div class="overlay" id="trackOverlay" onclick="closeModal('trackModal')"></div>
+<div class="modal modal-sm" id="trackModal">
+  <div class="modal-head"><h3>Lacak Pesanan</h3><button class="modal-close" onclick="closeModal('trackModal')">✕</button></div>
+  <div class="modal-body">
+    <div class="form-group"><label>Nomor Pesanan</label><input placeholder="Contoh: ORD-2291"></div>
+    <button class="btn btn-brass btn-block" style="margin-bottom:20px;">Lacak</button>
+    <div class="stepper-row">
+      <div class="step done"><div class="dot3">✓</div><span>Dipesan</span></div>
+      <div class="step done"><div class="dot3">✓</div><span>Diproses</span></div>
+      <div class="step now"><div class="dot3">●</div><span>Dikirim</span></div>
+      <div class="step"><div class="dot3">4</div><span>Selesai</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ACCOUNT MODAL -->
+<div class="overlay" id="accountOverlay" onclick="closeModal('accountModal')"></div>
+<div class="modal modal-sm" id="accountModal">
+  <div class="modal-head"><h3>Akun Saya</h3><button class="modal-close" onclick="closeModal('accountModal')">✕</button></div>
+  <div class="modal-body">
+    <div class="form-group"><label>Email</label><input type="email" placeholder="nama@email.com"></div>
+    <div class="form-group"><label>Kata Sandi</label><input type="password" placeholder="••••••••"></div>
+    <button class="btn btn-brass btn-block" style="margin-bottom:12px;">Masuk</button>
+    <button class="btn btn-outline btn-block">Buat Akun Baru</button>
+  </div>
+</div>
+
+
+
 <script>
+
+function gotoScreen(name){
+  document.querySelectorAll('.proto-screen').forEach(s=>s.classList.remove('active'));
+  var target = document.getElementById('screen-'+name);
+  if(target) target.classList.add('active');
+  document.querySelectorAll('.proto-link').forEach(b=>b.classList.remove('active'));
+  var link = document.querySelector('.proto-link[data-screen="'+name+'"]');
+  if(link) link.classList.add('active');
+  window.scrollTo(0,0);
+}
+
+/* ============ HOME screen behaviour ============ */
+
 function closeOverlay(id){document.getElementById(id).classList.remove('show');}
 function openModal(id){document.getElementById(id).classList.add('show');document.getElementById(id.replace('Modal','Overlay')).classList.add('show');}
 function closeModal(id){document.getElementById(id).classList.remove('show');document.getElementById(id.replace('Modal','Overlay')).classList.remove('show');}
@@ -961,6 +1608,40 @@ setInterval(()=>{
   document.getElementById('mm').textContent=String(m).padStart(2,'0');
   document.getElementById('ss').textContent=String(s).padStart(2,'0');
 },1000);
+
+/* ============ PRODUCT DETAIL screen behaviour ============ */
+
+function tab(el,id){
+  document.querySelectorAll('#screen-detail .tabs-nav button').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('#screen-detail .tab-panel').forEach(p=>p.classList.remove('active'));
+  el.classList.add('active'); document.getElementById(id).classList.add('active');
+}
+document.querySelectorAll('#screen-detail .variant-row').forEach(row=>{
+  row.querySelectorAll('.variant-btn').forEach(b=>b.addEventListener('click',()=>{
+    row.querySelectorAll('.variant-btn').forEach(x=>x.classList.remove('sel')); b.classList.add('sel');
+  }));
+});
+document.querySelectorAll('#screen-detail .thumb-row .t').forEach(t=>t.addEventListener('click',()=>{
+  document.querySelectorAll('#screen-detail .thumb-row .t').forEach(x=>x.classList.remove('active')); t.classList.add('active');
+}));
+let qty=1;
+document.querySelectorAll('#screen-detail .qty-stepper').forEach(s=>{
+  const span=s.querySelector('span'), btns=s.querySelectorAll('button');
+  btns[0].onclick=()=>{qty=Math.max(1,qty-1);span.textContent=qty;};
+  btns[1].onclick=()=>{qty++;span.textContent=qty;};
+});
+
+/* ============ CHECKOUT screen behaviour ============ */
+
+document.querySelectorAll('#screen-checkout .addr-card').forEach(c=>c.addEventListener('click',()=>{document.querySelectorAll('#screen-checkout .addr-card').forEach(x=>x.classList.remove('sel'));c.classList.add('sel');c.querySelector('input').checked=true;}));
+document.querySelectorAll('#screen-checkout .ship-opt').forEach(c=>c.addEventListener('click',()=>{document.querySelectorAll('#screen-checkout .ship-opt').forEach(x=>x.classList.remove('sel'));c.classList.add('sel');c.querySelector('input').checked=true;}));
+function selPay(el){document.querySelectorAll('#screen-checkout .pay-opt').forEach(x=>x.classList.remove('sel'));el.classList.add('sel');el.querySelector('input').checked=true;}
+
+function placeOrderFull(){
+  alert('Pesanan berhasil dibuat! Invoice dan instruksi pembayaran telah dikirim ke email kamu.');
+  gotoScreen('home');
+}
+
 </script>
 </body>
 </html>

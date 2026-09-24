@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Javan Cigars - Konsep 3</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<style>
+:root{--bg:#F3F4F9;--sf:#fff;--ink:#141A33;--mut:#5E6485;--line:#DADDEB;--pri:#1B2660;--pi:#fff;--soga:#B8692A;--acc:#1B2660;--tint:#E8EAF5;--rail:#111A4A;--t0:#E3E7F6;--t1:#F1E2D2;--t2:#DFECE6;--t3:#E8E6F1;--r:2px;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0A0E22;--sf:#111734;--ink:#EDEFFA;--mut:#9AA1C7;--line:#242B55;--pri:#93A0FF;--pi:#0A0E22;--soga:#E08A3C;--acc:#93A0FF;--tint:#1A2148;--rail:#0D1340;--t0:#1B2250;--t1:#3A2A1B;--t2:#16302A;--t3:#241F3A}}
+:root[data-theme="dark"]{--bg:#0A0E22;--sf:#111734;--ink:#EDEFFA;--mut:#9AA1C7;--line:#242B55;--pri:#93A0FF;--pi:#0A0E22;--soga:#E08A3C;--acc:#93A0FF;--tint:#1A2148;--rail:#0D1340;--t0:#1B2250;--t1:#3A2A1B;--t2:#16302A;--t3:#241F3A}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box;margin:0;border-radius:var(--r)}
+body{background:var(--bg);color:var(--ink);font:400 14px/1.6 "IBM Plex Sans",system-ui,sans-serif;padding:14px}
+.wrap{max-width:1240px;margin:0 auto}
+h1,h2,.logo div,.pr,#hc h3{font-family:Sora,"IBM Plex Sans",system-ui,sans-serif;letter-spacing:-.03em}
+h1{font-size:18px;font-weight:700}h2{font-size:clamp(24px,3vw,34px);font-weight:700;line-height:1.1}h3{font-size:14.5px;font-weight:600}
+.m{color:var(--mut)}.s{font-size:12.5px}.b{font-weight:600}
+.tabs{display:flex;gap:4px;overflow-x:auto;margin:12px 0;border-bottom:1px solid var(--line)}
+.tabs button{flex:none;border:0;border-bottom:3px solid transparent;background:none;color:var(--mut);font:500 13px "IBM Plex Sans",sans-serif;padding:9px 12px;cursor:pointer}
+.tabs button[aria-selected=true]{color:var(--ink);border-bottom-color:var(--soga);font-weight:600}
+:focus-visible{outline:2px solid var(--soga);outline-offset:2px}
+.app{background:var(--bg);border:1px solid var(--line)}
+.ut{display:flex;justify-content:space-between;padding:8px 32px;background:#0B1038;color:#C9CEEE;font-size:12.5px;gap:10px;flex-wrap:wrap}
+.shell{display:grid;grid-template-columns:250px 1fr}
+.rail{position:sticky;top:0;align-self:start;max-height:100vh;overflow:auto;background:var(--rail);background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.04) 0 2px,transparent 2px 16px);color:#E6E9FA;padding:26px 16px;display:flex;flex-direction:column;gap:22px}
+.logo{cursor:pointer;padding:0 8px}.logo div{font-size:23px;font-weight:700;color:#fff}.logo small{display:block;font:400 11.5px "IBM Plex Sans",sans-serif;color:#A9B0DD;letter-spacing:0;margin-top:2px}
+.r2{display:flex;flex-direction:column;gap:2px}
+.r2>a{padding:10px 12px;cursor:pointer;font-weight:500;color:#DDE1F7}.r2>a:hover{background:rgba(255,255,255,.07)}.r2>a.on{background:rgba(255,255,255,.12);box-shadow:inset 3px 0 #E08A3C;color:#fff}
+.dd{margin-top:16px;border-top:1px solid rgba(255,255,255,.14);padding-top:14px}.dd>a{display:block;padding:0 12px 6px;font-weight:600;color:#A9B0DD;font-size:12.5px}
+.pan{display:block;padding:0 12px}.pan div{margin-bottom:10px}.pan b{display:block;font-size:12.5px;color:#fff;margin-bottom:2px}.pan span{display:block;color:#B9C0E8;font-size:12.5px;padding:2px 0 2px 10px;cursor:pointer;border-left:1px solid rgba(255,255,255,.18)}.pan span:hover{color:#fff;border-left-color:#E08A3C}
+.mainc{min-width:0}
+.top{display:flex;align-items:center;gap:22px;padding:14px 32px;background:var(--sf);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:4;flex-wrap:wrap}
+.sr{flex:1;min-width:220px;display:flex;border:1px solid var(--line);background:var(--bg);position:relative}
+.sr select{background:none;color:var(--ink);border:0;border-right:1px solid var(--line);padding:0 10px;font:500 13px "IBM Plex Sans",sans-serif}
+.sr input{flex:1;background:none;border:0;color:var(--ink);padding:10px 14px;font:inherit;min-width:0;outline:0}
+.sr b{background:var(--pri);color:var(--pi);padding:10px 20px;cursor:pointer;font-weight:600}
+.sg{position:absolute;left:-1px;right:-1px;top:100%;margin-top:4px;background:var(--sf);color:var(--ink);border:1px solid var(--line);z-index:6;display:none;box-shadow:0 14px 30px rgba(15,20,60,.18)}.sg div{padding:9px 14px;cursor:pointer;display:flex;justify-content:space-between;gap:10px}.sg div:hover{background:var(--tint)}
+.ic{display:flex;gap:20px;align-items:center;font-weight:500}.ic a{cursor:pointer;color:var(--ink)}
+.ic i{font-style:normal;background:var(--soga);color:#fff;font-size:11px;font-weight:700;padding:1px 7px;margin-left:5px}
+.scr{display:none;padding:36px 32px}.scr.on{display:block}
+.card{background:var(--sf);border:1px solid var(--line);padding:20px}
+.btn{display:inline-block;border:1px solid var(--pri);background:var(--pri);color:var(--pi);font:600 13.5px "IBM Plex Sans",sans-serif;padding:11px 20px;cursor:pointer;text-align:center;transition:background .15s,border-color .15s}
+.btn:hover{background:var(--soga);border-color:var(--soga);color:#fff}
+.btn.o{background:none;color:var(--pri)}.btn.o:hover{background:var(--pri);border-color:var(--pri);color:var(--pi)}.btn.f{width:100%}.btn.sm{padding:8px 14px;font-size:12.5px}
+.in{border:1px solid var(--line);padding:10px 12px;background:var(--sf);color:var(--mut);font:inherit;width:100%}
+input.in,select.in{color:var(--ink)}
+.hero{display:grid;grid-template-columns:1.25fr 1fr;border:1px solid var(--line);background:var(--sf)}
+.hero .big{padding:60px 48px;display:flex;flex-direction:column;justify-content:center;gap:20px;min-height:440px}
+.hero .big h2{font-size:clamp(34px,4.8vw,62px);line-height:1.02;font-weight:800;color:var(--pri);max-width:12ch}
+.hero .big p{color:var(--mut);max-width:44ch;font-size:15px}
+.ctas{display:flex;gap:10px;flex-wrap:wrap}
+.ofl{position:relative;background:#141D52;overflow:hidden;min-height:340px}
+.kw{position:absolute;inset:0;width:100%;height:100%}
+.ofl .info{position:absolute;left:24px;right:24px;bottom:24px;background:var(--sf);color:var(--ink);padding:18px 20px;border-left:4px solid var(--soga)}
+.ofl .info p{color:var(--mut)}
+.vp{display:grid;grid-template-columns:repeat(4,1fr);margin:34px 0 10px}
+.vp div{padding:6px 24px;border-left:1px solid var(--line)}.vp div:first-child{border-left:0;padding-left:0}
+.vp h3:before{content:"";display:inline-block;width:9px;height:9px;background:var(--soga);margin-right:9px;transform:rotate(45deg)}
+.sec{display:flex;justify-content:space-between;align-items:end;margin:48px 0 20px;padding-bottom:12px;border-bottom:1px solid var(--line)}
+.sec h2{font-size:26px !important}
+.seg{display:inline-flex;gap:18px}.seg span{padding:4px 0;font-weight:500;color:var(--mut);cursor:pointer;border-bottom:2px solid transparent}.seg .on{color:var(--ink);border-bottom-color:var(--soga);font-weight:600}
+.g4{display:grid;grid-template-columns:repeat(4,1fr);gap:26px 22px}.g3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px 22px}
+#hc .card{padding:22px;min-height:150px;display:flex;flex-direction:column;justify-content:flex-end;border:0;color:#fff;cursor:pointer;transition:transform .15s}
+#hc .card:hover{transform:translateY(-4px)}
+#hc .card:nth-child(1){background:repeating-linear-gradient(45deg,rgba(255,255,255,.08) 0 3px,transparent 3px 14px),#1B2660}
+#hc .card:nth-child(2){background:radial-gradient(rgba(255,255,255,.22) 2px,transparent 2.5px) 0 0/16px 16px,#B8692A}
+#hc .card:nth-child(3){background:conic-gradient(rgba(255,255,255,.07) 25%,transparent 0 50%,rgba(255,255,255,.07) 0 75%,transparent 0) 0 0/28px 28px,#0E1540}
+#hc .card:nth-child(4){background:linear-gradient(135deg,rgba(255,255,255,.1) 25%,transparent 0 50%,rgba(255,255,255,.1) 0 75%,transparent 0) 0 0/24px 24px,#1F5B52}
+#hc h3{font-size:22px;font-weight:700}#hc .m{color:#fff;opacity:.8}
+.pc{padding:0;position:relative;display:flex;flex-direction:column;gap:5px;background:none;border:0}
+.pc .th{transition:box-shadow .15s}.pc:hover .th{box-shadow:0 0 0 2px var(--pri)}
+.th{--tc:var(--t0);aspect-ratio:1/1;background:var(--tc);position:relative;cursor:pointer;overflow:hidden;border:1px solid var(--line)}
+.t0{--tc:var(--t0)}.t1{--tc:var(--t1)}.t2{--tc:var(--t2)}.t3{--tc:var(--t3)}
+.th:before{content:"";position:absolute;left:13%;top:46%;width:74%;height:10.5%;transform:rotate(-18deg);background:linear-gradient(180deg,rgba(255,255,255,.25),transparent 50%),linear-gradient(90deg,#d9d6cf 0 5%,#6b4423 5% 100%);box-shadow:0 12px 14px -6px rgba(20,26,51,.35)}
+.th:after{content:"";position:absolute;left:47%;top:43%;width:7%;height:17%;transform:rotate(-18deg);background:linear-gradient(90deg,#1B2660 0 42%,#E08A3C 42% 58%,#1B2660 58%)}
+.pc .cat{font-size:12px;color:var(--mut);margin-top:8px}.pc h3{font-size:14px;min-height:40px;cursor:pointer;line-height:1.35}
+.pc .pr{font-size:19px;font-weight:700;margin-top:2px}
+.hot{position:absolute;top:10px;left:10px;background:var(--soga);color:#fff;font-size:11.5px;font-weight:700;padding:3px 10px;z-index:1}
+.hb{position:absolute;top:10px;right:10px;z-index:1;width:32px;height:32px;background:#fff;border:1px solid var(--line);cursor:pointer;display:grid;place-items:center;font-size:16px;color:#5E6485}
+.hb.on{color:#D12B3A}
+.side{display:grid;grid-template-columns:230px 1fr;gap:34px}
+.sd h3{margin:0 0 10px;font-family:Sora,sans-serif}.sd .blk{padding-bottom:18px;margin-bottom:18px;border-bottom:1px solid var(--line)}.sd span{color:var(--mut)}
+.sd .on{color:var(--pri);font-weight:600;box-shadow:inset 3px 0 var(--soga);padding-left:10px}
+.pg{display:flex;gap:4px;justify-content:center;margin-top:30px}.pg span{min-width:36px;height:36px;display:grid;place-items:center;border:1px solid var(--line);background:var(--sf)}.pg .on{background:var(--pri);color:var(--pi);border-color:var(--pri)}
+.det{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.opt{display:flex;gap:8px;flex-wrap:wrap}.opt button{border:1px solid var(--line);background:var(--sf);color:var(--ink);padding:11px 16px;cursor:pointer;font:500 13px "IBM Plex Sans",sans-serif;text-align:left}
+.opt button.on{border-color:var(--pri);background:var(--tint);box-shadow:inset 0 0 0 1px var(--pri)}
+.qty{display:inline-flex;border:1px solid var(--line);background:var(--sf)}.qty button{width:36px;border:0;background:none;color:var(--ink);cursor:pointer;font-size:17px}.qty button:hover{background:var(--tint)}.qty span{min-width:32px;text-align:center;line-height:40px;font-weight:600}
+.row{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.cr{display:grid;grid-template-columns:68px 1fr auto auto auto;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid var(--line)}
+.cr .th{width:68px;aspect-ratio:1}
+.cg{display:grid;grid-template-columns:1fr 350px;gap:28px}
+table{width:100%;border-collapse:collapse}th{text-align:left;font-weight:600;font-size:12.5px;color:var(--mut);padding:8px 6px;border-bottom:1px solid var(--ink)}td{padding:10px 6px;border-bottom:1px solid var(--line)}
+.pay{display:flex;gap:6px}.pay span{border:1px solid var(--line);padding:2px 12px;font-weight:600;font-size:12px;background:var(--sf)}
+.g2{display:grid;grid-template-columns:1fr 1fr;gap:22px}.f label{display:block;font-weight:600;font-size:12.5px;margin:10px 0 4px}
+.st{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.st div{padding:16px;background:var(--sf);border:1px solid var(--line);border-top:3px solid var(--soga)}.st b{display:block;color:var(--pri)}
+.ft{background:#0B1038;color:#AEB4DD;padding:26px 32px;display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center}
+.ft .pay span{background:transparent;border-color:#4A5288;color:#fff}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--pri);color:var(--pi);padding:12px 22px;font-weight:600;box-shadow:0 12px 30px rgba(10,14,34,.35);border-left:5px solid var(--soga);z-index:20;display:none}
+.list.g3{grid-template-columns:1fr}.list .pc{display:grid;grid-template-columns:120px 1fr auto;gap:2px 20px;align-items:center}.list .pc .th{width:120px;grid-row:1/5}.list .pc>span.btn{grid-column:3;grid-row:1/5}.list .pc .cat{margin-top:0}
+.tb{display:flex;gap:24px;border-bottom:1px solid var(--line);margin:34px 0 18px}.tb span{padding:8px 0;cursor:pointer;color:var(--mut);font-weight:500;margin-bottom:-1px}.tb .on{color:var(--ink);border-bottom:3px solid var(--soga);font-weight:600}
+.stars{color:var(--soga);letter-spacing:1px}.chips{display:flex;gap:6px;flex-wrap:wrap}.chips span{border:1px solid var(--line);padding:5px 12px;font-size:12.5px;cursor:pointer;background:var(--sf)}.chips .on{background:var(--pri);color:var(--pi);border-color:var(--pri)}
+.tlv{display:flex;flex-direction:column;gap:12px;margin-top:14px}.tlv div{display:flex;gap:12px}.tlv i{width:11px;height:11px;background:var(--soga);margin-top:6px;flex:none;transform:rotate(45deg)}.tlv .x{color:var(--mut)}.tlv .x i{background:var(--line)}
+.rad{display:flex;gap:12px;align-items:center;padding:13px 15px;border:1px solid var(--line);cursor:pointer;margin-top:8px}.rad.on{border-color:var(--pri);background:var(--tint);box-shadow:inset 0 0 0 1px var(--pri)}.rad b{display:block}
+.qr{width:130px;height:130px;margin:14px auto;background:conic-gradient(#141A33 0 25%,transparent 0 50%,#141A33 0 75%,transparent 0) 0 0/22px 22px;border:8px solid #fff;outline:1px solid var(--line)}
+details{border-bottom:1px solid var(--line);padding:14px 0}summary{cursor:pointer;font-weight:600}details p{margin-top:8px;color:var(--mut)}
+@media(max-width:900px){.shell,.hero,.side,.det,.cg,.g2{grid-template-columns:1fr}.rail{position:static;max-height:none;padding:18px 14px;flex-direction:row;flex-wrap:wrap;align-items:center;gap:8px 16px}.r2{flex-direction:row;flex-wrap:wrap}.dd{display:none}.g4,.vp,.st{grid-template-columns:1fr 1fr}.g3{grid-template-columns:1fr 1fr}.scr,.top,.ut,.ft{padding-left:14px;padding-right:14px}.hero .big{padding:32px 22px;min-height:0}.cr{grid-template-columns:56px 1fr auto}.cr>:nth-child(n+4){grid-column:2/4}.top{position:static}.vp div{border-left:0;padding-left:0}}
+@media(max-width:520px){.g4,.g3{grid-template-columns:1fr 1fr}.vp{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<h1>Javan Cigars: konsep 3, indigo batik dan navigasi samping</h1>
+<p class="m s">Semua interaksi berfungsi: cari, filter, urutan, keranjang, kupon, checkout, wishlist, lacak pesanan, dan lainnya. Data contoh ditandai di layar terkait.</p>
+<div class="tabs" id="tabs"></div>
+<div class="app">
+<div class="ut"><span>Ada pertanyaan? <a href="https://wa.me/628987899980" style="color:inherit">WhatsApp +62-898-789-9980</a></span><a style="cursor:pointer" onclick="go(7)">Lacak pesanan</a></div>
+<div class="shell">
+<aside class="rail">
+<div class="logo" onclick="go(0)"><div>Javan Cigars<small>Cerutu dan tembakau Indonesia</small></div></div>
+<nav class="r2">
+<a data-n="0" onclick="go(0)">Beranda</a><a data-n="1" onclick="go(1)">Toko</a><a data-n="5" onclick="go(5)">Pesan cepat</a><a data-n="7" onclick="go(7)">Akun</a><a data-n="8" onclick="go(8)">Reseller dan kontak</a><a data-n="9" onclick="go(9)">Informasi</a>
+<div class="dd"><a>Kategori</a><div class="pan">
+<div><b>Promo</b><span onclick="cat('Paket cerutu')">Paket cerutu</span></div>
+<div><b>Cerutu</b><span onclick="cat('Cerutu premium')">Cerutu premium</span></div>
+<div><b>Aksesori</b><span onclick="cat('Aksesori cerutu')">Aksesori cerutu</span><span onclick="cat('Aksesori pipa')">Aksesori pipa</span></div>
+<div><b>Lainnya</b><span onclick="cat('Roll-Your-Own')">Roll-Your-Own</span><span onclick="cat('')">Semua produk</span></div></div></div>
+</nav></aside>
+<div class="mainc">
+<div class="top"><div class="sr"><select id="sc" aria-label="Kategori"></select><input id="sq" placeholder="Cari produk" autocomplete="off" oninput="sugg()" onkeydown="if(event.key=='Enter')srch()"><b onclick="srch()">Cari</b><div class="sg" id="sg2"></div></div>
+<div class="ic"><a onclick="go(6)">Wishlist<i id="wc">0</i></a><a onclick="go(3)">Keranjang<i id="cc">0</i></a><a id="ac" onclick="go(7)">Masuk / Daftar</a></div></div>
+
+<section class="scr on">
+<div class="hero"><div class="big"><h2>Cerutu dan tembakau terbaik dari Indonesia</h2><p>Dipilih ahli tembakau, disimpan dan diperam dengan QC ketat. Pesanan dibayar sebelum pukul 15.00 langsung dikirim.</p><div class="ctas"><a class="btn" onclick="go(1)">Belanja sekarang</a><a class="btn o" onclick="go(5)">Pesan cepat</a></div></div>
+<div class="ofl"><svg class="kw" aria-hidden="true"><defs><pattern id="kwp" width="72" height="72" patternUnits="userSpaceOnUse"><g fill="none" stroke="#fff" stroke-opacity=".2" stroke-width="2"><circle cx="36" cy="18" r="17"/><circle cx="36" cy="54" r="17"/><circle cx="18" cy="36" r="17"/><circle cx="54" cy="36" r="17"/></g><rect x="32" y="32" width="8" height="8" transform="rotate(45 36 36)" fill="#E08A3C"/></pattern></defs><rect width="100%" height="100%" fill="url(#kwp)"/></svg><div class="info"><h3>Kunjungi toko offline kami</h3><p>Pasar Modern BSD City, Kios K-217</p><p>Buka 09.00-16.00, tutup setiap Selasa.</p></div></div></div>
+<div class="vp"><div><h3>Pengiriman langsung</h3><span class="m s">Semua pesanan dibayar sebelum 15.00</span></div><div><h3>Tembakau terbaik</h3><span class="m s">Dipilih oleh ahli tembakau kami</span></div><div><h3>Rasa terbaik</h3><span class="m s">QC, penyimpanan, dan pemeraman teliti</span></div><div><h3>Pelanggan utama</h3><span class="m s">Respons dan layanan cepat</span></div></div>
+<div class="sec"><h2 style="font-size:22px">Produk pilihan</h2><div class="seg" id="hseg"></div></div><div class="g4" id="hg"></div>
+<div class="sec"><h2 style="font-size:22px">Belanja per kategori</h2></div><div class="g4" id="hc"></div>
+<p class="b" style="margin-top:28px;text-align:center">Kami berkomitmen mendukung cerutu dan tembakau Indonesia berkualitas terbaik.</p></section>
+
+<section class="scr"><p class="m s" style="margin-bottom:12px">Beranda / Toko</p>
+<div class="side"><aside class="sd">
+<div class="blk"><h3>Kategori</h3><div id="cats"></div></div>
+<div class="blk"><h3>Harga (Rp)</h3><div class="row"><input class="in" id="pmin" type="number" placeholder="Min"><input class="in" id="pmax" type="number" placeholder="Maks"></div><div class="btn o f sm" style="margin-top:8px" onclick="apP()">Terapkan</div></div>
+<div class="blk"><h3>Ulasan</h3><div class="chips" id="rtc"></div></div>
+<div><h3>Terakhir dilihat</h3><div id="rv"></div></div></aside>
+<div><div class="row" style="margin-bottom:16px;flex-wrap:wrap"><div><h2 style="font-size:22px">Toko</h2><span class="m s" id="cnt"></span></div>
+<div class="row"><span class="chips"><span id="vg" onclick="F.view='g';shop()">Grid</span><span id="vl" onclick="F.view='l';shop()">Daftar</span></span>
+<select class="in" id="so" style="width:auto" onchange="F.sort=this.value;F.page=1;shop()"><option value="def">Urutan default</option><option value="pop">Popularitas</option><option value="rate">Rating tertinggi</option><option value="new">Terbaru</option><option value="lo">Harga terendah</option><option value="hi">Harga tertinggi</option></select><span class="btn o sm" onclick="rs()">Reset</span></div></div>
+<div id="sgd"></div><div class="pg" id="pgn"></div></div></div></section>
+
+<section class="scr" id="pdet"></section>
+
+<section class="scr"><h2 style="margin-bottom:16px">Keranjang belanja</h2>
+<div class="cg"><div class="card" id="cl"></div>
+<aside class="card f" style="align-self:start"><h3>Ringkasan</h3>
+<label>Kode kupon <span class="m">(contoh: JAVAN10)</span></label><div class="row"><input class="in" id="cpi"><span class="btn sm" onclick="cpn()">Terapkan</span></div>
+<label>Tujuan pengiriman <span class="m">(tarif contoh)</span></label><select class="in" id="shs" onchange="SH=+this.value;cart()"><option value="0">Pilih tujuan</option><option value="15000">Jabodetabek, Rp15.000</option><option value="25000">Pulau Jawa lainnya, Rp25.000</option><option value="45000">Luar Pulau Jawa, Rp45.000</option></select>
+<div style="margin-top:14px" class="row"><span class="m">Subtotal</span><b id="sub"></b></div><div class="row" style="margin-top:6px"><span class="m">Diskon</span><b id="dsc"></b></div><div class="row" style="margin-top:6px"><span class="m">Ongkos kirim</span><b id="shv"></b></div>
+<div class="row" style="border-top:1px solid var(--line);margin-top:12px;padding-top:12px"><b>Total</b><b id="tt" style="font-size:19px"></b></div>
+<span class="btn f" style="margin-top:14px" onclick="Object.keys(C).length?go(4):toast('Keranjang masih kosong')">Lanjut ke checkout</span>
+<div class="pay" style="margin-top:12px"><span>BCA</span><span>Mandiri</span><span>QRIS</span></div><p class="m s" style="margin-top:8px">Pesanan dibayar sebelum pukul 15.00 langsung dikirim.</p></aside></div></section>
+
+<section class="scr"><h2 style="margin-bottom:16px">Checkout</h2>
+<div class="cg" id="cof"><div><div class="card f"><h3>Alamat pengiriman</h3><div class="g2"><div><label>Nama penerima</label><input class="in" id="cn"></div><div><label>Nomor telepon</label><input class="in" id="ch"></div></div><label>Alamat lengkap</label><input class="in" id="ca"><label>Catatan pesanan (opsional)</label><input class="in"></div>
+<div class="card" style="margin-top:16px"><h3>Metode pembayaran</h3><div id="pm"></div></div></div><aside class="card" style="align-self:start" id="cos"></aside></div>
+<div class="card" id="ok" style="display:none;max-width:540px;margin:auto;text-align:center"><h2>Pesanan diterima</h2><p class="m" style="margin:8px 0">Nomor pesanan <b id="okn"></b>, total <b id="okt"></b></p><div id="okp"></div><div class="row" style="justify-content:center;margin-top:16px"><span class="btn" onclick="$('tno').value=$('okn').textContent;go(7)">Lacak pesanan</span><span class="btn o" onclick="go(1)">Lanjut belanja</span></div></div></section>
+
+<section class="scr"><h2>Pesan cepat</h2><p class="m" style="margin:6px 0 16px">Isi jumlah untuk beberapa produk sekaligus, lalu tambahkan semuanya ke keranjang.</p>
+<div class="card"><div class="row" style="margin-bottom:14px;flex-wrap:wrap;align-items:start"><input class="in" id="qsr" placeholder="Cari produk" style="max-width:320px" oninput="qrows()"><div class="chips" id="qch"></div></div>
+<table><thead><tr><th>Produk</th><th>Harga</th><th>Jumlah</th><th style="text-align:right">Subtotal</th></tr></thead><tbody id="qtb"></tbody></table>
+<div class="row" style="margin-top:16px"><b>Total <span id="qt"></span></b><span class="btn" onclick="qadd()">Tambahkan semua ke keranjang</span></div></div></section>
+
+<section class="scr"><h2 style="margin-bottom:16px">Wishlist</h2><div class="g4" id="wl"></div></section>
+
+<section class="scr"><h2 style="margin-bottom:16px">Akun saya</h2>
+<div class="g2" style="align-items:start"><div><div class="card" id="af"></div>
+<div class="card f" style="margin-top:16px"><h3>Lacak pesanan</h3><p class="m s">Masukkan nomor pesanan, contoh #1042.</p><label>Nomor pesanan</label><input class="in" id="tno"><div class="btn f" style="margin-top:12px" onclick="trk()">Lacak</div><div id="tr"></div></div></div>
+<div class="card"><h3 style="margin-bottom:8px">Riwayat pesanan</h3><table><tr><th>No.</th><th>Tanggal</th><th>Status</th><th style="text-align:right">Total</th></tr><tbody id="oh"></tbody></table></div></div></section>
+
+<section class="scr"><div class="g2" style="align-items:start">
+<div><h2>Jadi reseller Javan Cigars</h2><p class="m" style="margin:8px 0 20px;max-width:48ch">Gunakan merek Javan Cigars di area Anda. Kami beri diskon lebih besar dan dukungan seiring naiknya penjualan.</p>
+<div class="st" style="grid-template-columns:1fr 1fr"><div><b>Langkah 1</b>Isi formulir reseller. Tim kami menilai kelayakan Anda.</div><div><b>Langkah 2</b>Daftar akun di Javan-Cigars.com untuk diaktifkan sebagai reseller.</div><div><b>Langkah 3</b>Pilih stok awal. Tim menyarankan produk yang potensial di area Anda.</div><div><b>Langkah 4</b>Kami buatkan akun Tokopedia dengan merek Javan Cigars untuk mulai berjualan.</div></div></div>
+<div class="card f"><h3>Formulir reseller</h3><label>Nama lengkap</label><input class="in" id="rn1"><label>Kota</label><input class="in"><label>Nomor WhatsApp</label><input class="in" id="rw1"><label>Bisnis Anda (mis. kedai kopi)</label><input class="in"><div class="btn f" style="margin-top:14px" onclick="$('rn1').value&&$('rw1').value?(toast('Pendaftaran terkirim'),$('rn1').value=$('rw1').value=''):toast('Isi nama dan WhatsApp')">Kirim pendaftaran</div></div></div>
+<div class="card" style="margin-top:20px"><h3 style="margin-bottom:6px">Hubungi kami</h3><p class="m s">store@javan-cigars.com, (+62) 898-789-9980<br>Bukit Pamulang Indah D1 No. 3, Pamulang Timur, Tangerang Selatan 15417, Banten</p></div></section>
+
+<section class="scr"><h2 style="margin-bottom:8px">Pertanyaan umum</h2><p class="m s" style="margin-bottom:12px">Jawaban berdasarkan informasi yang ada di situs.</p><div style="max-width:720px">
+<details open><summary>Kapan pesanan saya dikirim?</summary><p>Pesanan yang dibayar sebelum pukul 15.00 langsung dikirim.</p></details>
+<details><summary>Pembayaran apa saja yang tersedia?</summary><p>BCA, Bank Mandiri, dan QRIS.</p></details>
+<details><summary>Bagaimana melacak pesanan?</summary><p>Buka Lacak pesanan, lalu masukkan nomor pesanan Anda.</p></details>
+<details><summary>Bagaimana menjadi reseller?</summary><p>Isi formulir reseller. Tim kami akan menilai profil Anda, lalu mengaktifkan akun Anda sebagai reseller.</p></details>
+<details><summary>Di mana toko offline Javan Cigars?</summary><p>Pasar Modern BSD City, Kios K-217. Buka 09.00-16.00, tutup setiap Selasa.</p></details></div></section>
+
+<footer class="ft"><span class="s">&copy; Javan Cigars. Cerutu dan tembakau Indonesia.</span><div class="pay"><span>BCA</span><span>Mandiri</span><span>QRIS</span></div></footer>
+</div></div></div></div>
+<div class="toast" id="ts"></div>
+<script>
+var P=[["Adipati S4 (Per Batang)","Cerutu premium",35000,0,0,4.8,12],["Adipati S4 (Box isi 10)","Cerutu premium",325000,0,1,4.7,9],["Archipelago Royal Crown (Per Batang)","Cerutu premium",105000,0,2,0,0],["Archipelago Royal Crown (Box-10)","Cerutu premium",1000000,0,3,5,3],["Archipelago Legacy (Per Batang)","Cerutu premium",165000,0,0,5,5],["Archipelago Legacy (Box-10)","Cerutu premium",1600000,0,1,0,0],["Archipelago Majestic (Per Batang)","Cerutu premium",135000,0,2,4,4],["Archipelago Majestic (Box-10)","Cerutu premium",1300000,0,3,0,0],["Archipelago Golden Vintage (Per Batang)","Cerutu premium",150000,0,0,0,0],["Archipelago Golden Vintage (Box-10)","Cerutu premium",1400000,0,1,4,4],["Archipelago Sampler, gratis cutter","Paket cerutu",705000,0,2,5,8],["Atlas Robusto (Per Batang)","Cerutu premium",105000,0,3,4,8],["Aku Ikhlas Tobaksgud (1 batang)","Cerutu premium",65000,0,0,0,0],["Asbak Ceramic Black (Gift Box)","Aksesori cerutu",250000,0,1,0,0],["Axis Triple Torch Lighter dan Puncher","Aksesori cerutu",200000,0,3,4,6],["Asbak Cigarloong Double Rest","Aksesori cerutu",200000,0,2,0,0],["Balsa Filters 6MM (10 pcs)","Aksesori pipa",30000,0,1,0,0],["Alat Linting GIZEH Silver Rollbox (68 mm)","Roll-Your-Own",200000,1,1,0,0]];
+var CATS=["Cerutu premium","Paket cerutu","Aksesori cerutu","Aksesori pipa","Roll-Your-Own"],$=function(i){return document.getElementById(i)},R=function(n){return"Rp"+Math.round(n).toLocaleString("id-ID")};
+var C={0:2,10:1},W={},RV=[],F={cat:"",q:"",min:0,max:0,rt:0,sort:"def",view:"g",page:1},U=null,CP=0,SH=0,PM="BCA",cur=0,dq=1,dt=0,QN={},QC="",RVW={},AM=0,HM=0,scr=0;
+var O=[{n:"#1017",d:"28 Agu",s:"Selesai",t:325000},{n:"#1042",d:"12 Sep",s:"Dikirim",t:705000}];
+function toast(m){var t=$("ts");t.textContent=m;t.style.display="block";clearTimeout(toast.h);toast.h=setTimeout(function(){t.style.display="none"},2200)}
+function stars(p){return p[6]?'<span class="stars">'+"\u2605\u2605\u2605\u2605\u2605".slice(0,Math.round(p[5]))+'</span> <span class="m s">'+p[5]+' ('+p[6]+')</span>':'<span class="m s">Belum ada ulasan</span>'}
+function card(i){var p=P[i];return'<div class="card pc">'+(p[3]?'<span class="hot">Hot</span>':'')+'<span class="hb'+(W[i]?' on':'')+'" onclick="hs('+i+',this)">&#9825;</span><div class="th t'+p[4]+'" onclick="openP('+i+')"></div><span class="cat">'+p[1]+'</span><h3 onclick="openP('+i+')">'+p[0]+'</h3>'+stars(p)+'<div class="pr">'+R(p[2])+'</div><span class="btn sm o" onclick="add('+i+')">Tambah ke keranjang</span></div>'}
+function hs(i,e){W[i]=!W[i];if(e)e.classList.toggle("on");wcnt();if(scr==6)rw();toast(W[i]?"Ditambahkan ke wishlist":"Dihapus dari wishlist")}
+function wcnt(){$("wc").textContent=Object.keys(W).filter(function(k){return W[k]}).length}
+function ccnt(){$("cc").textContent=Object.keys(C).reduce(function(a,k){return a+C[k]},0)}
+function add(i,n,s){C[i]=(C[i]||0)+(n||1);ccnt();if(!s)toast("Ditambahkan ke keranjang")}
+var TN=["Beranda","Toko","Detail produk","Keranjang","Checkout","Pesan cepat","Wishlist","Akun","Reseller dan kontak","Informasi"],T=$("tabs"),S=document.querySelectorAll(".scr");
+TN.forEach(function(n,i){var b=document.createElement("button");b.textContent=n;b.onclick=function(){go(i)};T.appendChild(b)});
+function go(i){scr=i;[].forEach.call(T.children,function(b,k){b.setAttribute("aria-selected",k==i)});S.forEach(function(s,k){s.classList.toggle("on",k==i)});[].forEach.call(document.querySelectorAll(".r2 a[data-n]"),function(a){a.classList.toggle("on",a.dataset.n==i)});if(i==1)shop();if(i==2)rd();if(i==3)cart();if(i==4)co();if(i==5)qrows();if(i==6)rw();if(i==7)acc();window.scrollTo(0,0)}
+function home(){$("hseg").innerHTML=["Terpopuler","Terlaris","Terbaru"].map(function(n,k){return'<span class="'+(k==HM?'on':'')+'" onclick="HM='+k+';home()">'+n+'</span>'}).join("");$("hg").innerHTML=[[0,1,11,10],[4,0,3,14],[17,16,15,14]][HM].map(card).join("");$("hc").innerHTML=[["Cerutu premium","Cerutu"],["Aksesori cerutu","Aksesori cerutu"],["Aksesori pipa","Aksesori pipa"],["Roll-Your-Own","Roll-Your-Own"]].map(function(c){return'<div class="card" style="cursor:pointer" onclick="cat(\''+c[0]+'\')"><h3>'+c[1]+'</h3><p class="m s">'+P.filter(function(p){return p[1]==c[0]}).length+' produk</p></div>'}).join("")}
+function cat(c){F.cat=c;F.page=1;go(1)}
+function flt(){var a=[];P.forEach(function(p,i){if((!F.cat||p[1]==F.cat)&&(!F.q||p[0].toLowerCase().indexOf(F.q)>=0)&&p[2]>=F.min&&(!F.max||p[2]<=F.max)&&p[5]>=F.rt)a.push(i)});var s=F.sort;if(s!="def")a.sort(function(x,y){return s=="lo"?P[x][2]-P[y][2]:s=="hi"?P[y][2]-P[x][2]:s=="rate"?P[y][5]-P[x][5]:s=="pop"?P[y][6]-P[x][6]:y-x});return a}
+function shop(){var a=flt(),n=a.length,pp=9,pg=Math.max(1,Math.ceil(n/pp));F.page=Math.min(F.page,pg);$("cnt").textContent=n+" produk ditemukan"+(F.q?' untuk "'+F.q+'"':"");
+$("cats").innerHTML=[""].concat(CATS).map(function(c){var k=c?P.filter(function(p){return p[1]==c}).length:P.length;return'<span style="cursor:pointer" class="'+(F.cat==c?'on':'')+'" onclick="cat(\''+c+'\')">'+(c||"Semua kategori")+' ('+k+')</span>'}).join("");
+$("rtc").innerHTML=[[0,"Semua"],[5,"5 bintang"],[4,"4 ke atas"]].map(function(r){return'<span class="'+(F.rt==r[0]?'on':'')+'" onclick="F.rt='+r[0]+';F.page=1;shop()">'+r[1]+'</span>'}).join("");
+$("vg").className=F.view=="g"?"on":"";$("vl").className=F.view=="l"?"on":"";$("so").value=F.sort;
+$("sgd").className="g3"+(F.view=="l"?" list":"");$("sgd").innerHTML=a.slice((F.page-1)*pp,F.page*pp).map(card).join("")||'<div class="card" style="grid-column:1/-1;text-align:center"><h3>Tidak ada produk yang cocok</h3><p class="m s" style="margin:6px 0 12px">Ubah filter atau reset pencarian.</p><span class="btn sm" onclick="rs()">Reset filter</span></div>';
+var h="";for(var k=1;k<=pg;k++)h+='<span class="'+(k==F.page?'on':'')+'" style="cursor:pointer" onclick="F.page='+k+';shop()">'+k+'</span>';$("pgn").innerHTML=pg>1?h:"";
+$("rv").innerHTML=RV.length?RV.slice(0,4).map(function(i){return'<span class="s" style="display:block;padding:3px 0;cursor:pointer" onclick="openP('+i+')">'+P[i][0]+'</span>'}).join(""):'<span class="s m">Belum ada produk</span>'}
+function apP(){F.min=+$("pmin").value||0;F.max=+$("pmax").value||0;F.page=1;shop()}
+function rs(){F={cat:"",q:"",min:0,max:0,rt:0,sort:"def",view:F.view,page:1};$("pmin").value=$("pmax").value=$("sq").value="";shop()}
+function sugg(){var v=$("sq").value.toLowerCase(),b=$("sg2"),m=[];if(!v){b.style.display="none";return}P.forEach(function(p,i){if(p[0].toLowerCase().indexOf(v)>=0)m.push(i)});b.innerHTML=m.slice(0,5).map(function(i){return'<div onclick="$(\'sg2\').style.display=\'none\';openP('+i+')"><span>'+P[i][0]+'</span><b>'+R(P[i][2])+'</b></div>'}).join("")||'<div class="m">Tidak ada hasil</div>';b.style.display="block"}
+function srch(){F.q=$("sq").value.toLowerCase().trim();F.cat=$("sc").value;F.page=1;$("sg2").style.display="none";go(1)}
+$("sc").innerHTML='<option value="">Semua</option>'+CATS.map(function(c){return'<option>'+c+'</option>'}).join("");
+function descr(i){var c=P[i][1];return c=="Cerutu premium"?"Cerutu premium Indonesia pilihan Javan Cigars, dipilih ahli tembakau dan disimpan dengan QC ketat.":c=="Paket cerutu"?"Paket berisi lima varian Archipelago (Royal Crown, Majestic, Noble Master, Golden Vintage, Legacy), sudah termasuk cutter.":"Produk pilihan Javan Cigars dengan kualitas terjaga."}
+function openP(i){cur=i;dq=1;dt=0;RV=[i].concat(RV.filter(function(k){return k!=i})).slice(0,6);go(2)}
+function q(d){dq=Math.max(1,dq+d);$("qv").textContent=dq}
+function revs(i){var l=(RVW[i]||[]).map(function(r){return'<div style="padding:10px 0;border-bottom:1px solid var(--line)"><b>'+r[0]+'</b> <span class="stars">'+"\u2605\u2605\u2605\u2605\u2605".slice(0,r[1])+'</span><p class="m s">'+r[2]+'</p></div>'}).join("");return(P[i][6]?'<p class="m s">Rating rata-rata '+P[i][5]+' dari '+P[i][6]+' ulasan (data contoh).</p>':'')+l+'<div class="card f" style="margin-top:12px;max-width:520px"><h3>Tulis ulasan</h3><label>Nama</label><input class="in" id="rn"><label>Rating</label><select class="in" id="rr"><option>5</option><option>4</option><option>3</option><option>2</option><option>1</option></select><label>Ulasan</label><input class="in" id="rt"><div class="btn sm" style="margin-top:12px" onclick="addRv()">Kirim ulasan</div></div>'}
+function addRv(){var n=$("rn").value.trim(),t=$("rt").value.trim();if(!n||!t){toast("Isi nama dan ulasan");return}(RVW[cur]=RVW[cur]||[]).push([n,+$("rr").value,t]);toast("Ulasan terkirim");rd()}
+function rd(){var i=cur,p=P[i],v=i<10,rel=[];P.forEach(function(x,k){if(k!=i&&x[1]==p[1]&&rel.length<4)rel.push(k)});
+var tc=dt==0?'<p class="m" style="max-width:62ch">'+descr(i)+'</p>':dt==1?'<table><tr><td class="m">Kategori</td><td>'+p[1]+'</td></tr><tr><td class="m">Kemasan</td><td>'+(v?(i%2?"Box isi 10":"Per batang"):"Sesuai judul produk")+'</td></tr><tr><td class="m">Pengiriman</td><td>Dibayar sebelum 15.00, dikirim hari yang sama</td></tr><tr><td class="m">Pembayaran</td><td>BCA, Mandiri, QRIS</td></tr></table>':revs(i);
+$("pdet").innerHTML='<p class="m s" style="margin-bottom:12px"><span style="cursor:pointer" onclick="go(0)">Beranda</span> / <span style="cursor:pointer" onclick="go(1)">Toko</span> / '+p[1]+'</p><div class="det"><div class="th t'+p[4]+'" style="cursor:default"></div><div style="display:flex;flex-direction:column;gap:16px"><div><span class="m s">'+p[1]+'</span><h2>'+p[0]+'</h2>'+stars(p)+'</div><div class="pr" style="font-size:30px;font-weight:700">'+R(p[2])+'</div>'+(v?'<div><div class="s b" style="margin-bottom:6px">Kemasan</div><div class="opt">'+[i&~1,i|1].map(function(k){return'<button class="'+(k==i?'on':'')+'" onclick="openP('+k+')">'+(k%2?"Box isi 10":"Per batang")+'<br><span class="m s">'+R(P[k][2])+'</span></button>'}).join("")+'</div></div>':'')+'<div class="row" style="justify-content:flex-start"><div class="qty"><button onclick="q(-1)">-</button><span id="qv">'+dq+'</span><button onclick="q(1)">+</button></div><span class="btn" style="flex:1" onclick="add(cur,dq)">Tambah ke keranjang</span><span class="hb'+(W[i]?' on':'')+'" style="position:static" onclick="hs('+i+',this)">&#9825;</span></div><a class="btn o" href="https://wa.me/628987899980" style="text-decoration:none">Tanya via WhatsApp</a><div class="card s m">Dibayar sebelum 15.00, dikirim hari yang sama. Pembayaran lewat BCA, Mandiri, atau QRIS.</div></div></div>'
++'<div class="tb">'+["Deskripsi","Informasi tambahan","Ulasan ("+(p[6]+(RVW[i]||[]).length)+")"].map(function(n,k){return'<span class="'+(k==dt?'on':'')+'" onclick="dt='+k+';rd()">'+n+'</span>'}).join("")+'</div>'+tc+'<div class="sec"><h2 style="font-size:22px">Produk terkait</h2></div><div class="g4">'+rel.map(card).join("")+'</div>'}
+function tot(){var t=0;Object.keys(C).forEach(function(k){t+=P[k][2]*C[k]});var d=t*CP,s=t?SH:0;return{t:t,d:d,s:s,g:t-d+s}}
+function cart(){var k=Object.keys(C).filter(function(x){return C[x]>0});$("cl").innerHTML=k.map(function(x){var p=P[x];return'<div class="cr"><div class="th t'+p[4]+'"></div><div><h3>'+p[0]+'</h3><span class="m s">'+p[1]+' - '+R(p[2])+'</span></div><div class="qty"><button onclick="ch('+x+',-1)">-</button><span>'+C[x]+'</span><button onclick="ch('+x+',1)">+</button></div><b>'+R(p[2]*C[x])+'</b><span class="m s" style="cursor:pointer" onclick="ch('+x+',-99)">Hapus</span></div>'}).join("")||'<p class="m" style="margin-bottom:10px">Keranjang masih kosong.</p><span class="btn sm" onclick="go(1)">Mulai belanja</span>';var t=tot();$("sub").textContent=R(t.t);$("dsc").textContent=t.d?"-"+R(t.d):"Rp0";$("shv").textContent=SH?R(SH):"Pilih tujuan";$("tt").textContent=R(t.g);ccnt()}
+function ch(k,d){C[k]=Math.max(0,(C[k]||0)+d);if(!C[k])delete C[k];cart()}
+function cpn(){if($("cpi").value.trim().toUpperCase()=="JAVAN10"){CP=.1;toast("Kupon diterapkan: diskon 10%")}else{CP=0;toast("Kode kupon tidak valid")}cart()}
+function co(){if(Object.keys(C).length){$("cof").style.display="grid";$("ok").style.display="none"}var t=tot();
+$("pm").innerHTML=[["BCA","Virtual account BCA"],["Mandiri","Virtual account Mandiri"],["QRIS","Scan QRIS dari aplikasi bank atau dompet digital"]].map(function(m){return'<div class="rad'+(PM==m[0]?' on':'')+'" onclick="PM=\''+m[0]+'\';co()"><div><b>'+m[0]+'</b><span class="m s">'+m[1]+'</span></div></div>'}).join("");
+$("cos").innerHTML='<h3 style="margin-bottom:10px">Pesanan Anda</h3>'+Object.keys(C).map(function(k){return'<div class="row s" style="padding:4px 0"><span>'+P[k][0]+' x'+C[k]+'</span><b>'+R(P[k][2]*C[k])+'</b></div>'}).join("")+'<div class="row" style="margin-top:12px"><span class="m">Diskon</span><b>'+(t.d?"-"+R(t.d):"Rp0")+'</b></div><div class="row" style="margin-top:6px"><span class="m">Ongkos kirim</span><b>'+(SH?R(SH):"Pilih di keranjang")+'</b></div><div class="row" style="border-top:1px solid var(--line);margin-top:12px;padding-top:12px"><b>Total</b><b style="font-size:19px">'+R(t.g)+'</b></div><span class="btn f" style="margin-top:14px" onclick="order()">Buat pesanan</span>'}
+function order(){var t=tot();if(!t.t){toast("Keranjang masih kosong");return}if(!$("cn").value.trim()||!$("ch").value.trim()||!$("ca").value.trim()){toast("Lengkapi nama, telepon, dan alamat");return}var no="#"+(1043+O.length-2);O.unshift({n:no,d:"Hari ini",s:"Menunggu pembayaran",t:t.g});C={};CP=0;ccnt();$("cof").style.display="none";$("ok").style.display="block";$("okn").textContent=no;$("okt").textContent=R(t.g);$("okp").innerHTML='<p class="m s">Pembayaran via '+PM+'. Bayar sebelum 15.00 agar pesanan dikirim hari ini.</p>'+(PM=="QRIS"?'<div class="qr"></div><p class="m s">Kode QR contoh</p>':'<p class="b" style="margin-top:10px">Virtual account 8801 2345 6789 <span class="m s">(contoh)</span></p>')}
+function qrows(){var v=$("qsr").value.toLowerCase(),t=0,h="";P.forEach(function(p,i){if((!QC||p[1]==QC)&&(!v||p[0].toLowerCase().indexOf(v)>=0))h+='<tr><td>'+p[0]+'<div class="m s">'+p[1]+'</div></td><td>'+R(p[2])+'</td><td><div class="qty"><button onclick="qch('+i+',-1)">-</button><span>'+(QN[i]||0)+'</span><button onclick="qch('+i+',1)">+</button></div></td><td style="text-align:right">'+R(p[2]*(QN[i]||0))+'</td></tr>'});$("qtb").innerHTML=h||'<tr><td colspan="4" class="m">Tidak ada produk</td></tr>';Object.keys(QN).forEach(function(k){t+=P[k][2]*QN[k]});$("qt").textContent=R(t);$("qch").innerHTML=[""].concat(CATS).map(function(c){return'<span class="'+(QC==c?'on':'')+'" onclick="QC=\''+c+'\';qrows()">'+(c||"Semua")+'</span>'}).join("")}
+function qch(i,d){QN[i]=Math.max(0,(QN[i]||0)+d);qrows()}
+function qadd(){var n=0;Object.keys(QN).forEach(function(k){if(QN[k]>0){add(k,QN[k],1);n++}});QN={};qrows();toast(n?"Semua produk ditambahkan ke keranjang":"Isi jumlah dulu")}
+function rw(){var k=Object.keys(W).filter(function(x){return W[x]});$("wl").innerHTML=k.map(card).join("")||'<div class="card" style="grid-column:1/-1;text-align:center"><h3>Wishlist masih kosong</h3><p class="m s" style="margin:6px 0 12px">Tekan ikon hati pada produk untuk menyimpannya.</p><span class="btn sm" onclick="go(1)">Jelajahi toko</span></div>'}
+function hdr(){$("ac").textContent=U?"Halo, "+U:"Masuk / Daftar"}
+function acc(){$("af").innerHTML=U?'<h3>Halo, '+U+'</h3><p class="m s" style="margin:6px 0 14px">Anda sudah masuk.</p><span class="btn o f" onclick="U=null;hdr();acc()">Keluar</span>':'<div class="seg" style="margin-bottom:12px"><span class="'+(AM?'':'on')+'" onclick="AM=0;acc()">Masuk</span><span class="'+(AM?'on':'')+'" onclick="AM=1;acc()">Daftar</span></div><div class="f"><label>Email</label><input class="in" id="ae"><label>Kata sandi</label><input class="in" type="password" id="ap"><div class="btn f" style="margin-top:14px" onclick="login()">'+(AM?"Buat akun":"Masuk")+'</div></div>';$("oh").innerHTML=O.map(function(o){return'<tr><td>'+o.n+'</td><td>'+o.d+'</td><td>'+o.s+'</td><td style="text-align:right">'+R(o.t)+'</td></tr>'}).join("")}
+function login(){var e=$("ae").value.trim();if(!e||!$("ap").value){toast("Isi email dan kata sandi");return}U=e.split("@")[0];hdr();toast(AM?"Akun dibuat":"Berhasil masuk");acc()}
+function trk(){var v=$("tno").value.trim().replace(/^#?/,"#"),o=O.filter(function(x){return x.n==v})[0],st=["Pesanan diterima","Pembayaran dikonfirmasi","Dikemas","Dikirim","Selesai"];if(!o){$("tr").innerHTML='<p class="m s" style="margin-top:12px">Nomor pesanan tidak ditemukan.</p>';return}var ix={"Menunggu pembayaran":0,"Dikirim":3,"Selesai":4}[o.s];$("tr").innerHTML='<div class="tlv">'+st.map(function(s,k){return'<div class="'+(k<=ix?'':'x')+'"><i></i>'+s+'</div>'}).join("")+'</div>'}
+wcnt();ccnt();home();go(0);
+</script>
+</body>
+</html>
